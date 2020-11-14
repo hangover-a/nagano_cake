@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :customers,only: [:index,:show,:edit,:update]
   	resources :items,only: [:index,:new,:create,:show,:edit,:update,]
   	get 'top'=>'homes#top'
-  	resources :genres,only: [:index,:create,:edit,:update, :show]
+  	resources :genres,only: [:index,:create,:edit,:update] #show消した
   	resources :orders,only: [:index,:show,:update] do
         resource :order_details,only: [:update], on: :member
     end
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
       resources :orders,only: [:new,:index,:show,:create] do
           post 'confirm', on: :collection
-          get 'thanx', on: :collection
+          get 'complete', on: :collection
       end
 
       resources :addresses,only: [:index,:create,:edit,:update,:destroy]
