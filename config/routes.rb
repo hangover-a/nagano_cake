@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   # administrator
-  devise_for :administrators, skip: [:passwords, :registrations], :controllers => {
-    :sessions => 'administrators/sessions'
-  }
+  devise_for :administrators, skip: [:passwords, :registrations]
   namespace :administrator do
     resources :customers,only: [:index,:show,:edit,:update]
   	resources :items,only: [:index,:new,:create,:show,:edit,:update,]
@@ -15,11 +13,7 @@ Rails.application.routes.draw do
   end
 
    # customer
-   devise_for :customers, :controllers => {
-    :sessions => 'customers/sessions',
-    :registrations => 'customers/registrations',
-    :passwords => 'customers/passwords'
-   }
+  devise_for :customers
 
   get 'about' => 'customer/homes#about'
   root 'customer/homes#top'

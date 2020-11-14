@@ -1,2 +1,6 @@
-class Administrators::HomesController < ApplicationController
+class Administrator::HomesController < ApplicationController
+
+  def top
+  end
+
 end
