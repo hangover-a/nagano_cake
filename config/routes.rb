@@ -25,39 +25,17 @@ Rails.application.routes.draw do
     resources :items,only: [:index,:show]
     get 'customer/edit' => 'customers#edit'
     patch 'customer' => 'customers#update'
-
   	resource :customers,only: [:show] do
-  	     get 'quit', on: :collection
-  	     patch 'out', on: :collection
-
+  	  get 'quit', on: :collection
+  	  patch 'out', on: :collection
       resources :cart_items,only: [:index,:update,:create,:destroy] do
-          delete '/' => 'cart_items#destroy_all', on: :collection
+        delete '/' => 'cart_items#destroy_all', on: :collection
       end
-
       resources :orders,only: [:new,:index,:show,:create] do
-          post 'confirm', on: :collection
-          get 'complete', on: :collection
+        post 'confirm', on: :collection
+        get 'complete', on: :collection
       end
-
       resources :addresses,only: [:index,:create,:edit,:update,:destroy]
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
