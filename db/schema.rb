@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2020_11_12_094309) do
     t.integer "order_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["id"], name: "index_orders_on_id"
   end
 
 end
