@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # administrator
-  devise_for :administrators, skip: [:passwords, :registrations]
+  devise_for :administrators
   namespace :administrator do
     resources :customers,only: [:index,:show,:edit,:update]
   	resources :items,only: [:index,:new,:create,:show,:edit,:update,]
