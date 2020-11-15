@@ -11,8 +11,7 @@ Rails.application.routes.draw do
         resource :order_details,only: [:update], on: :member
     end
   end
-
-   # customer
+  # customer
   devise_for :customers, :controllers => {
     :sessions => 'customers/sessions',
     :registrations => 'customers/registrations',
