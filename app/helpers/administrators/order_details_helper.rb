@@ -1,0 +1,2 @@
+module Administrators::OrderDetailsHelper
+end
