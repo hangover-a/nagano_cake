@@ -1,13 +1,24 @@
 class Customer::CustomersController < ApplicationController
 
   def edit
-    @user = current_customer
+    @customer = current_customer
   end
 
   def update
-    @user = current_customer
-    @user.update(customer_params)
+    @customer = current_customer
+    @customer.update(customer_params)
     redirect_to customers_path
+  end
+  
+  def quit
+  end
+  
+  def out
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   private

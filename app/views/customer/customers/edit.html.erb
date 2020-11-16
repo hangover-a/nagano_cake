@@ -1,5 +1,5 @@
 <h2>登録情報編集</h2>
-<%= form_with model: @user do |f| %>
+<%= form_with model: @customer, local: true do |f| %>
   <div class="field">
     <%= f.label :name, "名前" %>
     (姓)<%= f.text_field :last_name, autocomplete: "山田" %>
@@ -32,7 +32,9 @@
     <%= f.text_field :phone_number %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "編集内容を保存する" %>
-  </div>
+  <span class="actions">
+    <%= f.submit "編集内容を保存する", class: 'btn btn-default' %>
+    <%= link_to "退会する", quit_customers_path, class: 'btn btn-default' %>
+  </span>
+
 <% end %>
