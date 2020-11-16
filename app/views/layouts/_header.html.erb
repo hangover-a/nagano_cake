@@ -6,7 +6,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if customer_signed_in? %>
-          <p>ようこそ<%= current_customer.name %>さん</p>
+          <p>ようこそ<%= current_customer.last_name %>さん</p>
           <li><%= link_to 'マイページ', customers_path(current_customer), class: "btn btn-default" %></li>
           <li><%= link_to '商品一覧', items_path, class: "btn btn-default" %></li>
           <li><%= link_to 'カート', customers_cart_items_path, class: "btn btn-default" %></li>
