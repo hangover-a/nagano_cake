@@ -73,3 +73,25 @@ footer{
 .about_block {
  text-align: center;
 }
+
+.main-visual {
+ width: 650px;
+ height: 250px;
+ background-image: url(cake.jpg);
+ background-size: cover;
+ background-position: center;
+ text-align: center;
+}
+
+.main-visual-ahead {
+ height: 70px;
+}
+
+.main-visual-content {
+ height: 80px;
+ background: rgba(0, 0, 0, 0.5);
+}
+
+.main-visual-text {
+ color: #fff;
+}
