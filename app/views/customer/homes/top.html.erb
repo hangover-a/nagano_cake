@@ -1,1 +1,32 @@
-<h1 style="margin-top:50px">homes/top</h1>
+<div class="row">
+  <div class="col-xs-3">
+    <table class="table table-bordered">
+      <tr>
+        <th>ジャンル検索</th>
+      </tr>
+      <tr>
+        <td>
+          <% @genres.each do |genre| %>
+            <%= genre.name %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    関係者の方は<%= link_to 'こちら', new_administrator_session_path %>
+  </div>
+  <div class="col-xs-9">
+    <div class="main-visual">
+      <div class="main-visual-ahead"></div>
+      <div class="main-visual-content">
+        <p class="main-visual-text">
+          ようこそ、NaganoCakeへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+    </div>
+    <h3>オススメ商品</h3>
+    <%= link_to 'もっと見る>', items_path %>
+  </div>
+</div
