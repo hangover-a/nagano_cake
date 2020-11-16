@@ -16,6 +16,56 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .body {
-  margin-top: 70px;
- }
+* {
+ margin :0;
+ padding: 0;
+}
+
+// .container {
+//  margin: 0;
+//  padding: 0;
+// }
+
+// header
+.body {
+ margin-top: 70px;
+}
+.welcome-customer {
+ color: rgba(210,105,30,0.8);
+ margin-top: 15px;
+}
+.navbar {
+ background-color: rgba(255,235,205,0.6);
+ position: relative;
+ width: 100vw;
+ height: 90px;
+}
+
+.header {
+ position: absolute;
+ top: 15px;
+ left: 80px;
+}
+
+.nav-btn {
+  margin-left: 16px;
+}
+
+// footer
+html {
+ position: relative;
+ min-height: 100%;
+}
+body{
+ margin-bottom: 90px;
+ padding-bottom: 0;
+}
+footer{
+ background-color: rgb(255,235,205);
+ min-height: 90px;
+ width: 100%;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ margin-bottom: 0;
+}
