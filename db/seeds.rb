@@ -9,3 +9,13 @@ Administrator.create!(
    email: 'hang@over',
    password: 'hangover',
 )
+
+Administrator.create!(
+   email: 'take@ichi',
+   password: 'takeichi',
+)
+
+Administrator.create!(
+   email: 'yo@hey',
+   password: 'yoheydayo',
+)

@@ -10,11 +10,14 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
     <div class="container">
-      <%= render 'layouts/header' %>
       <div class="body">
         <%= yield %>
       </div>
+      <% unless administrator_signed_in? %>
+        <%= render 'layouts/footer' %>
+      <% end %>
     </div>
   </body>
 </html>
