@@ -1,1 +1,38 @@
-<h1 style="margin-top:50px">customers/edit</h1>
+<h2>登録情報編集</h2>
+<%= form_with model: @user do |f| %>
+  <div class="field">
+    <%= f.label :name, "名前" %>
+    (姓)<%= f.text_field :last_name, autocomplete: "山田" %>
+    (名)<%= f.text_field :first_name, autocomplete: "花子" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, "フリガナ" %>
+    (セイ)<%= f.text_field :last_name_kana, autocomplete: "ヤマダ" %>
+    (メイ)<%= f.text_field :first_name_kana, autocomplete: "ハナコ" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
+    <%= f.text_field :postcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集内容を保存する" %>
+  </div>
+<% end %>
