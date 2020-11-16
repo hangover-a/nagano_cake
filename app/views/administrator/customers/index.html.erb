@@ -9,13 +9,21 @@
   </thead>
   <tbody>
     <% @customers.each do |customer| %>
-    <tr>
-      <td class="info col-xs-1">
-        <%= customer.id %>
-      </td>
-      <td>
-        
-      </td>
-    </tr>
+      <tr>
+        <td class="info col-xs-1">
+          <%= customer.id %>
+        </td>
+        <td>
+          <%= link_to admin_customer_path(customer) do %>
+            <%= name(customer) %>
+          <% end %>
+        </td>
+        <td>
+          <%= customer.email %>
+        </td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
