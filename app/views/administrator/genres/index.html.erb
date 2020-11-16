@@ -22,7 +22,14 @@
             <%= genre.name %>
           </td>
           <td>
-            <%= genre.is_active %>
+            <% if genre.is_active == true %>
+              <p>有効</p>
+            <% else %>
+              <p>無効</p>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "編集する", edit_administrator_genre_path(genre), class: "btn btn-primary" %>
           </td>
         </tr>
         <% end %>
