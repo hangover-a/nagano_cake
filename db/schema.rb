@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_095529) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "costomer_id", null: false
+    t.integer "customer_id", null: false
     t.integer "item_id", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_095529) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "costomer_id", null: false
+    t.integer "customer_id", null: false
     t.integer "delivery_fee", null: false
     t.integer "total_cost", null: false
     t.integer "payment_method", default: 0, null: false
