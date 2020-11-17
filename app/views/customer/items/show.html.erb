@@ -1,19 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <table class="table tabale-bordered">
-        <thead>
-          <tr>
-            <th>ジャンル検索</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @genres.each do |genre| %>
-          <td>
-            <%= link_to genre.genre_name
-          </td>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="row">
+  <%= attachment_image_tag @item, :image, size: "350x350", fallback: "no_image.jpg" %>
+</div>
+<div>
+  <h3><%= @item.name %></h3>
+  <p><%= @item.introduction %></p>
 </div>
