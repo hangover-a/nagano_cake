@@ -1,1 +1,43 @@
-<h1 style="margin-top:50px">addresses/index</h1>
+<h2>配送先登録/一覧</h2>
+<%= form_with model: @address, url: customers_addresses_path, local: true do |f| %>
+  <div class="field">
+    <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
+    <%= f.text_field :postcode %>
+  </div>
+  <div class="field">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :addressee, "宛名" %>
+    <%= f.text_field :addressee %>
+  </div>
+  <span class="actions">
+    <%= f.submit "登録する", class: 'btn btn-default' %>
+  </span>
+<% end %>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="table-secondary">
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @addresses.each do |add| %>
+      <tbody>
+        <tr>
+          <td><%= add.postcode %></td>
+          <td><%= add.address %></td>
+          <td><%= add.addressee %></td>
+          <td>
+            <span class="actions">
+              <%= link_to "編集する", edit_customers_address_path(add.id), class: 'btn btn-default' %>
+              <%= link_to "削除する", customers_address_path(add.id), method: :delete, class: 'btn btn-danger' %>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
