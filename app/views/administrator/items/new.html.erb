@@ -1,6 +1,6 @@
 <h2 class="title">商品新規登録</h2>
 <div class="row">
-  <%= form_with model: @item_new, local:true do |f| %>
+  <%= form_with model: @item_new, url: administrator_items_path, method: :post, local:true do |f| %>
     <div class="col-xs-4">
       <%= f.attachment_field :image %>
     </div>
@@ -15,7 +15,7 @@
       </span><br>
       <span>
         <%= f.label :"ジャンル" %>
-        <%= f.select :genre_id, "後で追加" %>
+        <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "選択してください"}) %>
       </span><br>
       <span>
         <%= f.label :"税抜価格" %>
@@ -27,7 +27,7 @@
       </span>
     </div>
     <div class="col-xs-3">
-      <%= f.submit"新規投稿", class: "btn btn-primary col-xs-8" %>
+      <%= f.submit "新規投稿", class: "btn btn-primary col-xs-8" %>
     </div>
   <% end %>
 </div>
