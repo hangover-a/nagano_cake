@@ -1,1 +1,11 @@
-<h1 style="margin-top:50px">items/index</h1>
+<h2>商品一覧</h2>
+<div class="row">
+  <% @items.each do |item| %>
+  <div>
+      <%= link_to item_path(item.id) do %>
+      <%= item.name %>
+      <%= item.price_without_tax %>円
+      <% end %>
+  </div>
+  <% end %>
+</div>
