@@ -22,7 +22,7 @@
             <%= link_to item.name, administrator_item_path(item) %>
           </td>
           <td>
-            <%= item.price_without_tax %>
+            <%= item.price_without_tax.to_s(:delimited, delimiter: ',') %>
           </td>
           <td>
             <%= item.genre.name %>

@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_095529) do
     t.integer "genre_id", null: false
     t.string "name", null: false
     t.text "discription", null: false
-    t.string "price_without_tax", null: false
+    t.integer "price_without_tax", null: false
     t.string "image_id", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_095529) do
     t.integer "order_id", null: false
     t.integer "quantity", null: false
     t.integer "item_status", default: 0, null: false
-    t.string "price_tax_included", null: false
+    t.integer "price_tax_included", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_095529) do
   create_table "orders", force: :cascade do |t|
     t.integer "costomer_id", null: false
     t.integer "delivery_fee", null: false
-    t.string "total_cost", null: false
+    t.integer "total_cost", null: false
     t.integer "payment_method", default: 0, null: false
     t.string "postcode", null: false
     t.string "address", null: false
