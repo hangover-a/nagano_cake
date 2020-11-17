@@ -6,12 +6,18 @@ class Administrator::ItemsController < ApplicationController
   end
 
   def index
+    @items = Item.all
   end
 
   def show
+    @item = Item.find(params[:id])
+    tax = 1.1
+    @tax_price = ((@item.price_without_tax * tax).round(2)).ceil
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @genres = Genre.all
   end
 
   def create
@@ -21,6 +27,9 @@ class Administrator::ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to administrator_item_path(@item)
   end
 
   private

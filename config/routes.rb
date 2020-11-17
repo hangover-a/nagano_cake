@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   # administrator
   devise_for :administrators
   namespace :administrator do
-    resources :customers,only: [:index,:show,:edit,:update]
-  	resources :items,only: [:index,:new,:create,:show,:edit,:update,]
+    resources :customers, only: [:index,:show,:edit,:update]
+  	resources :items, only: [:index,:new,:create,:show,:edit,:update,]
   	get 'top'=>'homes#top'
-  	resources :genres,only: [:index,:create,:edit,:update] #show消した
-  	resources :orders,only: [:index,:show,:update] do
-      resource :order_details,only: [:update], on: :member
+  	resources :genres, only: [:index,:create,:edit,:update] #show消した
+  	resources :orders, only: [:index,:show,:update] do
+      resource :order_details, only: [:update], on: :member
     end
   end
   
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
         post 'confirm', on: :collection
         get 'complete', on: :collection
       end
-      resources :addresses,only: [:index,:create,:edit,:update,:destroy]
+      resources :addresses, only: [:index,:create,:edit,:update,:destroy]
     end
   end
   

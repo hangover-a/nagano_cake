@@ -13,12 +13,19 @@ class Customer::AddressesController < ApplicationController
   end
 
   def edit
+    @address = Address.find_by(id: params[:id], customer_id: current_customer.id)
   end
 
   def update
+    @address = Address.find_by(id: params[:id], customer_id: current_customer.id)
+    @address.update(address_params)
+    redirect_to customers_addresses_path
   end
 
   def destroy
+    @address = Address.find_by(id: params[:id], customer_id: current_customer.id)
+    @address.destroy
+    redirect_to customers_addresses_path
   end
 
   private
