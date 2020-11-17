@@ -6,9 +6,11 @@ class Administrator::ItemsController < ApplicationController
   end
 
   def index
+    @items = Item.all
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
