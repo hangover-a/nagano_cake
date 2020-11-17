@@ -6,9 +6,13 @@ class Administrator::ItemsController < ApplicationController
   end
 
   def index
+    @items = Item.all
   end
 
   def show
+    @item = Item.find(params[:id])
+    tax = 1.1
+    @tax_price = ((@item.price_without_tax * tax).round(2)).ceil
   end
 
   def edit
