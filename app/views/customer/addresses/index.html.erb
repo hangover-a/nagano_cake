@@ -13,7 +13,7 @@
     <%= f.text_field :addressee %>
   </div>
   <span class="actions">
-    <%= f.submit "登録する", class: 'btn btn-default' %>
+    <%= f.submit "登録する", class: "btn btn-success" %>
   </span>
 <% end %>
   <table class="table table-bordered">
@@ -33,7 +33,7 @@
           <td><%= add.addressee %></td>
           <td>
             <span class="actions">
-              <%= link_to "編集する", edit_customers_address_path(add.id), class: 'btn btn-default' %>
+              <%= link_to "編集する", edit_customers_address_path(add.id), class: "btn btn-primary" %>
               <%= link_to "削除する", customers_address_path(add.id), method: :delete, class: 'btn btn-danger' %>
             </span>
           </td>

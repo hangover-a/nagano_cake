@@ -1,7 +1,11 @@
 <h1>マイページ</h1>
 <span>登録情報
-  <%= link_to customer_edit_path do %>編集する<% end %>
-  <%= link_to edit_customer_password_path do %>パスワードを変更する<% end %>
+  <%= link_to customer_edit_path do %>
+    <button type="button" class="btn btn-primary">編集する</button>
+  <% end %>
+  <%= link_to edit_customer_password_path do %>
+    <button type="button" class="btn btn-primary">パスワードを変更する</button>
+  <% end %>
 </span>
 <table class="table table-bordered">
   <tr>
@@ -23,5 +27,13 @@
     <th class="active">メールアドレス</th><td><%= current_customer.email %></td>
   </tr>
 </table>
-<span>配送先<%= link_to customers_addresses_path do %>一覧を見る<% end %></span>
-<span>注文履歴<%= link_to customers_orders_path do %>一覧を見る<% end %></span>
+<span>配送先
+  <%= link_to customers_addresses_path do %>
+    <button type="button" class="btn btn-primary">一覧を見る</button>
+  <% end %>
+</span>
+<span>注文履歴
+  <%= link_to customers_orders_path do %>
+    <button type="button" class="btn btn-primary">一覧を見る</button>
+  <% end %>
+</span>
