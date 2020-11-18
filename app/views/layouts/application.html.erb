@@ -11,13 +11,16 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
-      <div class="body">
-        <%= yield %>
+    <hr>
+    <div class="a">
+      <div class="container">
+       <div class="body">
+         <%= yield %>
+       </div>
       </div>
-      <% unless administrator_signed_in? %>
-        <%= render 'layouts/footer' %>
-      <% end %>
     </div>
+       <% unless administrator_signed_in? %>
+         <%= render 'layouts/footer' %>
+       <% end %>
   </body>
 </html>

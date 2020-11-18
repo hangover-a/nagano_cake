@@ -13,7 +13,6 @@ class Customer::OrdersController < ApplicationController
     @order = Order.new(customer_id: current_customer.id, payment_method: params[:order][:payment_method])
     @cart_items = current_customer.cart_items
     @order.delivery_fee = 800
-    @pricing = total_cost(@cart_items) + @order.delivery_fee
     if params[:order][:address] == "residence"
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
@@ -45,7 +44,7 @@ class Customer::OrdersController < ApplicationController
     end
     @cart_items.destroy_all
   end
-  
+
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
