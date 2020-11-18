@@ -21,9 +21,10 @@
           <p><%= @item.discription %></p>
           <p>￥<%= (@item.price_without_tax*1.1) .floor %>(税込）</p>
           <div class="field">
-            <%= form_with model: @cart_item, url: customers_cart_items_path(@cart_item), method: :post ,local: true do |f| %>
+            <%= form_with model: @cart_item, url: customers_cart_items_path, method: :post ,local: true do |f| %>
               <%= f.number_field :quantity, min:1, placeholder: "個数選択" %>
               <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.hidden_field :customer_id, value: current_customer.id %>
               <%= f.submit "カートに入れる", class: "btn btn-primary" %>
             <% end %>
           </div>
