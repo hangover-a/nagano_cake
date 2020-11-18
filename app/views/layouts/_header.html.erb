@@ -10,21 +10,21 @@
       <ul class="nav navbar-nav navbar-right">
         <% if customer_signed_in? %>
           <li class="welcome-customer">ようこそ<%= current_customer.last_name %>さん</li>
-          <li class="nav-btn"><%= link_to 'マイページ', customers_path(current_customer), class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to '商品一覧', items_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to 'カート', customers_cart_items_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "btn btn-default" %></li>
+          <li class="nav-btn"><%= link_to 'マイページ', customers_path(current_customer) %></li>
+          <li class="nav-btn"><%= link_to '商品一覧', items_path %></li>
+          <li class="nav-btn"><%= link_to 'カート', customers_cart_items_path %></li>
+          <li class="nav-btn"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
         <% elsif administrator_signed_in? %>
-          <li class="nav-btn"><%= link_to '商品一覧', administrator_items_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to '会員一覧', administrator_customers_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to '注文履歴一覧', administrator_orders_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to 'ジャンル一覧', administrator_genres_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to 'ログアウト', destroy_administrator_session_path, method: :delete, class: "btn btn-default" %></li>
+          <li class="nav-btn"><%= link_to '商品一覧', administrator_items_path %></li>
+          <li class="nav-btn"><%= link_to '会員一覧', administrator_customers_path %></li>
+          <li class="nav-btn"><%= link_to '注文履歴一覧', administrator_orders_path %></li>
+          <li class="nav-btn"><%= link_to 'ジャンル一覧', administrator_genres_path %></li>
+          <li class="nav-btn"><%= link_to 'ログアウト', destroy_administrator_session_path, method: :delete %></li>
         <% else %>
-          <li class="nav-btn"><%= link_to 'About', about_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to '商品一覧', items_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to '新規登録', new_customer_registration_path, class: "btn btn-default" %></li>
-          <li class="nav-btn"><%= link_to 'ログイン', new_customer_session_path, class: "btn btn-default" %></li>
+          <li class="nav-btn"><%= link_to 'About', about_path %></li>
+          <li class="nav-btn"><%= link_to '商品一覧', items_path %></li>
+          <li class="nav-btn"><%= link_to '新規登録', new_customer_registration_path %></li>
+          <li class="nav-btn"><%= link_to 'ログイン', new_customer_session_path %></li>
         <% end %>
       </ul>
     </nav>
