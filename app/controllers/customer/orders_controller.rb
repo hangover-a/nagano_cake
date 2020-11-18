@@ -31,6 +31,7 @@ class Customer::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    byebug
     @order.save
     redirect_to complete_customers_orders_path
   end

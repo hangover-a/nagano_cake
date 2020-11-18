@@ -92,3 +92,10 @@ footer{
 .main-visual-text {
  color: #fff;
 }
+
+// プレビュー機能
+.img_prev:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.05, 1.05);
+}

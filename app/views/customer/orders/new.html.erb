@@ -16,7 +16,7 @@
   <%= order.radio_button :address, "delivery_address" %>
   <%= order.label :address, "登録済住所から選択", {value: :delivery_address, style: "display: inline-block;"} %>
   <br>
-  <%= order.collection_select (:delivery_address_id, :@addresses, :id, :order_address), include_blank: '選択してください', class: 'form-control' %>
+  <%= order.collection_select(:address_id, @addresses, :id, :order_address, nil, prompt: "選択してください") %>
   <br>
   <%= order.radio_button :address, "new_address" %>
   <%= order.label :address, "新しいお届け先", {value: :new_address, style: "display: inline-block;"} %>

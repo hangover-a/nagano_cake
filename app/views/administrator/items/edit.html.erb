@@ -2,8 +2,9 @@
   <h2>商品編集</h2>
   <%= form_with model: @item, url: administrator_item_path(@item), local:true do |f| %>
     <div class="col-xs-4">
-      <%= attachment_image_tag(@item, :image, :fill, 250, 230,) %>
-      <%= f.attachment_field :image %>
+
+      <%= f.attachment_field :image, class: 'img_field', style: 'display:none;' %>
+      <%= attachment_image_tag @item, :image, :fill, 300, 300, onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
     </div>
     <div class="col-xs-6">
       <span>
