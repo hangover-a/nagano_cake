@@ -1,1 +1,66 @@
-<h1 style="margin-top:50px">orders/confirm</h1>
+<h2>注文情報確認</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |cart| %>
+      <tr>
+        <td>
+          <%= attachment_image_tag cart.item :image, size: "100x100", fallback: "no_image.jpg" %>
+          <%= cart.item.name %>
+        </td>
+        <td>
+          <%= price_tax_included(cart.item.price_without_tax).to_s(:delimited) %>
+        </td>
+        <td>
+          <%= cart.quantity %>
+        </td>
+        <td>
+          <%= sub_price(cart).to_s(:delimited) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<table class="table table-bordered">
+  <tr>
+    <th>送料</th>
+    <td>
+      <%= @order.delivery_fee %>
+    </td>
+  </tr>
+  <tr>
+    <th>商品合計</th>
+    <td>
+      <%= total_cost(@cart_items).to_s(:delimited) %>
+    </td>
+  </tr>
+  <tr>
+    <th>請求金額</th>
+    <td>
+      <%= pricing(@order).to_s(:delimited) %>
+    </td>
+  </tr>
+</table>
+<h2>支払方法</h2>
+<%= @order.payment_method %>
+<h2>お届け先</h2>
+<span>
+  <%= @order.postcode %><%= @order.address %>
+</span>
+<%= @order.addressee %>
+<%= form_with model: @order, url: customers_orders_path, method: :post, local: true do |f| %>
+  <%= f.hidden_field :postcode %>
+  <%= f.hidden_field :address %>
+  <%= f.hidden_field :addressee %>
+  <%= f.hidden_field :payment_method %>
+  <%= f.hidden_field :total_cost %>
+  <%= f.hidden_field :add, value: @add %>
+  <%= f.submit "購入を確定する", class: "btn btn-warning" %>
+<% end %>
