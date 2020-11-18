@@ -15,6 +15,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css2？family = Modak＆ display = swap');
 
 * {
  margin :0;
@@ -27,25 +28,44 @@
 // }
 
 // header
+
+.inc-name {
+ font-family: 'Modak', cursive;
+ font-weight: 600;
+ font-size: 20px;
+}
+
+a {
+ text-decoration : none;
+ color : inherit;
+ a:hover {
+  color: rgba(0,0,0,0.6);
+ }
+}
+
 .welcome-customer {
  color: rgba(210,105,30,0.8);
  margin-top: 15px;
 }
 .navbar {
- background-color: rgba(255,235,205,0.6);
  position: relative;
  width: 100vw;
- height: 90px;
+ height: 50px;
 }
 
 .header {
  position: absolute;
- top: 15px;
- left: 80px;
+ top: 14px;
+ left: 150px;
 }
 
 .nav-btn {
-  margin-left: 16px;
+  margin-left: 35px;
+}
+
+.navbar-nav > li > a {
+ padding: 8px;
+ background-color: rgba(47,79,79,0.1);
 }
 
 // footer
@@ -59,12 +79,17 @@ body{
 }
 footer{
  background-color: rgb(255,235,205);
- min-height: 90px;
+ min-height: 25px;
  width: 100%;
  position: absolute;
  bottom: 0;
  left: 0;
  margin-bottom: 0;
+ text-align: center;
+}
+.footer {
+ padding: 5px;
+ font-size: 10px;
 }
 
 .about_block {
@@ -72,25 +97,30 @@ footer{
 }
 
 .main-visual {
- width: 650px;
- height: 250px;
+ width: 750px;
+ height: 280px;
  background-image: url(cake.jpg);
  background-size: cover;
  background-position: center;
  text-align: center;
 }
 
+.row-top {
+ margin-top: 30px;
+}
+
 .main-visual-ahead {
- height: 70px;
+ height: 100px;
 }
 
 .main-visual-content {
- height: 80px;
+ height: 100px;
  background: rgba(0, 0, 0, 0.5);
 }
 
 .main-visual-text {
  color: #fff;
+ padding: 10px;
 }
 
 // プレビュー機能
