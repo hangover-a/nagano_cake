@@ -2,7 +2,8 @@
 <div class="row">
   <%= form_with model: @item_new, url: administrator_items_path, method: :post, local:true do |f| %>
     <div class="col-xs-4">
-      <%= f.attachment_field :image %>
+      <%= f.file_field :image, class: 'img_field', style: 'display:none;' %>
+      <%= attachment_image_tag @item_new, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'300x300', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
     </div>
     <div class="col-xs-5">
       <span>

@@ -14,7 +14,16 @@
       </thead>
       <tbody>
         <% current_customer.cart_items.each do |cart_item| %>
+        <tr><table class="table table-bordered">
+      <thead>
         <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </tr>
+      </thead>
           <td>
             <%= attachment_image_tag cart_item.item, :image, size:"30x30" %>
             <%= cart_item.item.name %>
