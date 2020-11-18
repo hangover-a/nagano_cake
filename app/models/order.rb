@@ -2,6 +2,7 @@ class Order < ApplicationRecord
 
   belongs_to :customer
   has_many :ordered_items, dependent: :destroy
+  has_many :order_details, dependent: :destroy
   
   with_options presence: true do
     validates :payment_method
