@@ -19,6 +19,9 @@ class Customer::CartItemsController < ApplicationController
 
     unless customer_carts.nil?
       @cart_item = customer_carts
+    else
+      @cart_item = CartItem.new
+      @cart_item.save
     end
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.save
