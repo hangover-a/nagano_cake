@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/search'
   # administrator
   devise_for :administrators
   namespace :administrator do
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
       resource :order_details, only: [:update], on: :member
     end
   end
-  
+
   # customer
   devise_for :customers, :controllers => {
     :sessions => 'customers/sessions',
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   get 'about' => 'customer/homes#about'
   root 'customer/homes#top'
   scope module: :customer do
+    get '/search' => 'search#search'
     resources :items, only: [:index,:show]
     get 'customer/edit' => 'customers#edit'
     patch 'customer' => 'customers#update'
@@ -37,5 +39,5 @@ Rails.application.routes.draw do
       resources :addresses, only: [:index,:create,:edit,:update,:destroy]
     end
   end
-  
+
 end
