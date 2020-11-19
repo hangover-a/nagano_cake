@@ -29,5 +29,8 @@
           <p class="fas fa-chevron-circle-right">￥<%= item.price_without_tax %></p>
         </div>
       <% end %>
+      <div class="pagination col-xs-text-center">
+        <%= paginate @items %>
+      </div>
     </div>
   </div>
