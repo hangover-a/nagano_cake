@@ -56,11 +56,10 @@
 </span>
 <%= @order.addressee %>
 <%= form_with model: @order, url: customers_orders_path, method: :post, local: true do |f| %>
-  <%= f.hidden_field :postcode %>
-  <%= f.hidden_field :address %>
-  <%= f.hidden_field :addressee %>
-  <%= f.hidden_field :payment_method %>
-  <%= f.hidden_field :total_cost %>
-  <%= f.hidden_field :add, value: @add %>
+  <%= f.hidden_field :postcode, :value => @order.postcode %>
+  <%= f.hidden_field :address, :value => @order.address %>
+  <%= f.hidden_field :addressee, :value => @order.addressee %>
+  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+  <%= f.hidden_field :total_cost, :value => pricing(@order) %>
   <%= f.submit "購入を確定する", class: "btn btn-warning" %>
 <% end %>

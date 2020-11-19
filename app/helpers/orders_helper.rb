@@ -8,8 +8,8 @@ module OrdersHelper
     (price * 1.1).floor
   end
 
-  def sub_price(cart)
-    (price_tax_included(cart) * cart.quantity)
+  def sub_price(price)
+    (price_tax_included(price.item.price_without_tax) * price.quantity)
   end
 
   def total_cost(total)
