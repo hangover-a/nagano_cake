@@ -16,13 +16,13 @@
           <%= cart.item.name %>
         </td>
         <td>
-          <%= (cart.item.price_without_tax*1.1).floor.to_s(:delimited, delimiter: ',') %>
+          <%= price_tax_included(cart.item.price_without_tax).to_s(:delimited, delimiter: ',') %>
         </td>
         <td>
           <%= cart.quantity %>
         </td>
         <td>
-          <%= ((cart.item.price_without_tax*1.1).floor*cart.quantity).to_s(:delimited, delimiter: ',') %>
+          <%= sub_price(cart).to_s(:delimited, delimiter: ',') %>
         </td>
       </tr>
     <% end %>
@@ -38,23 +38,18 @@
   <tr>
     <th>商品合計</th>
     <td>
-      <% @cart_items.each do |cart| %>
-        <%= (((cart.item.price_without_tax*1.1).floor*cart.quantity).to_s.sum).to_s(:delimited, delimiter: ',') %>
-      <% end %>
+      <%= total_cost(@cart_items).to_s(:delimited, delimiter: ',') %>
     </td>
   </tr>
   <tr>
     <th>請求金額</th>
     <td>
-      <%= @cart_items.each do |cart|
-        (((cart.item.price_without_tax*1.1).floor*cart.quantity).to_s.sum).to_s(:delimited, delimiter: ',')
-      end
-      + @order.delivery_fee.to_s(:delimited, delimiter: ',') %>
+      <%= pricing(@order).to_s(:delimited, delimiter: ',') %>
     </td>
   </tr>
 </table>
 <h2>支払方法</h2>
-<%= @order.payment_method %>
+<%= @order.payment_method_i18n %>
 <h2>お届け先</h2>
 <span>
   <%= @order.postcode %><%= @order.address %>
@@ -65,7 +60,7 @@
   <%= f.hidden_field :address %>
   <%= f.hidden_field :addressee %>
   <%= f.hidden_field :payment_method %>
-  <!--#  f.hidden_field :total_cost-->
+  <%= f.hidden_field :total_cost %>
   <%= f.hidden_field :add, value: @add %>
   <%= f.submit "購入を確定する", class: "btn btn-warning" %>
 <% end %>
