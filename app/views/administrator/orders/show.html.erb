@@ -41,8 +41,8 @@
         <tr>
           <td><%= order_detail.item.name %></td>
           <td>￥<%= (order_detail.item.price_without_tax*1.1) .floor %></td>
-          <td><%= order_detail.amount %></td>
-          <td><%= (order_detail.amount)*((order_detail.item.price_without_tax*1.1) .floor) %></td>
+          <td><%= order_detail.quantity %></td>
+          <td><%= (order_detail.quantity)*((order_detail.item.price_without_tax*1.1) .floor) %></td>
           <%= form_with model: order_detail, url: administrator_order_order_details_path(order_detail), method: :patch, local :true do |f| %>
           <td>
             <%= f.select :making_status, ["着手不可","製作待ち","製作中","製作完了"] %>
