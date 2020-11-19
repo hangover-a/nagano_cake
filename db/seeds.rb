@@ -83,16 +83,16 @@ Customer.create!(
    is_deleted: false
    )
 
-Genre.create!(
-   name: 'マドレーヌ',
-   is_active: 'true'
-)
 
 Genre.create!(
    name: 'ケーキ',
    is_active: 'true'
 )
 
+Genre.create!(
+   name: 'マドレーヌ',
+   is_active: 'true'
+)
 Genre.create!(
    name: 'クッキー',
    is_active: true

@@ -12,7 +12,9 @@ class Customer::SearchController < ApplicationController
 
   def match(value)
     #whereで該当するnameのレコードを取ってくるので、viewではname以外の情報も使える
-    Item.where(name: value)
+
+    Item.where(name: value).or(Item.where(genre_id: value))
+
   end
 
   def forward(value)
