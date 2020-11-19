@@ -13,7 +13,6 @@ class Customer::OrdersController < ApplicationController
     @order = Order.new(customer_id: current_customer.id, payment_method: params[:order][:payment_method])
     @cart_items = current_customer.cart_items
     @order.delivery_fee = 800
-    pricing = total_cost(@cart_items) + @order.delivery_fee
     if params[:order][:address] == "residence"
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
@@ -52,22 +51,6 @@ class Customer::OrdersController < ApplicationController
   end
 
   def complete
-  end
-
-  def price_tax_included(price)
-    (price * 1.1).floor
-  end
-
-  def sub_price(sub)
-    price_tax_included(sub.item.price_without_tax) * sub.quantity
-  end
-
-  def total_cost(totals)
-    cost = 0
-    totals.each do |total|
-      price  +=  sub_price(total)
-    end
-    return cost
   end
 
   private
