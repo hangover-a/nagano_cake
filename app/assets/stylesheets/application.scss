@@ -16,13 +16,29 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css2？family = Modak＆ display = swap');
+ @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap');
 
 * {
  margin :0;
  padding: 0;
 }
-h2 {
+
+// 見出しへのcss
+h3 {
  margin-top :0;
+ font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h2 {
+ font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h1 {
+ font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.about-h1 {
+ margin-top: 35px;
 }
 
 .a {
@@ -57,7 +73,9 @@ a {
 .navbar {
  position: relative;
  width: 100vw;
- height: 50px;
+ height: 70px;
+ background-color: rgba(230,230,250,0.8);
+ margin-bottom: 0;
 }
 
 .header {
@@ -68,15 +86,13 @@ a {
 
 .nav-btn {
   margin-left: 35px;
-   border: 1px solid black;
-   border-radius: 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: white;
 }
 
 .navbar-nav > li > a {
  padding: 8px;
- .navbar-nav > li > a:hover{
-   background-color: rgba(47,79,79,0.1);
- }
 }
 
 hr {
@@ -113,12 +129,54 @@ footer{
  text-align: center;
 }
 
+// top画像スライドショー
 .main-visual {
+ width: 750px;
+ height: 280px;
+}
+
+#images {
+ width: 750px;
+ height: 280px;
+}
+
+.main-visual1 {
  width: 750px;
  height: 280px;
  background-image: url(cake.jpg);
  background-size: cover;
  background-position: center;
+ border-radius: 4px;
+ text-align: center;
+}
+
+.main-visual2 {
+ width: 750px;
+ height: 280px;
+ background-image: url(cake_2.jpg);
+ background-size: cover;
+ background-position: center;
+ border-radius: 4px;
+ text-align: center;
+}
+
+.main-visual3 {
+ width: 750px;
+ height: 280px;
+ background-image: url(cake_3.jpg);
+ background-size: cover;
+ background-position: center;
+ border-radius: 4px;
+ text-align: center;
+}
+
+.main-visual4 {
+ width: 750px;
+ height: 280px;
+ background-image: url(cake_4.jpg);
+ background-size: cover;
+ background-position: center;
+ border-radius: 4px;
  text-align: center;
 }
 
@@ -126,19 +184,6 @@ footer{
  margin-top: 30px;
 }
 
-.main-visual-ahead {
- height: 100px;
-}
-
-.main-visual-content {
- height: 100px;
- background: rgba(0, 0, 0, 0.5);
-}
-
-.main-visual-text {
- color: #fff;
- padding: 10px;
-}
 
 // プレビュー機能
 .img_prev:hover {
@@ -157,6 +202,9 @@ footer{
  margit-bottom: 30px;
 }
 
+.img_hover {
+  border-radius: 8px;
+}
 .img_hover:hover {
   cursor: pointer;
   opacity: 0.9;
@@ -165,4 +213,9 @@ footer{
 
 .item-name {
  margin-top: 12px;
+}
+// customer/about
+.about-body {
+ margin-top: 20px;
+ margin-bottom: 20px;
 }
