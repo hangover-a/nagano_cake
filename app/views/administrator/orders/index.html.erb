@@ -1,1 +1,25 @@
-<h1 style="margin-top:50px">administrator/orders/index</h1>
+<h2>注文履歴一覧</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>購入日時</th>
+      <th>購入者</th>
+      <th>注文個数</th>
+      <th>注文ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td>
+        <%= link_to administrators_order_path(order) do %>
+          <%= order.created_at %>
+        <% end %>
+      </td>
+      <td><%= customer.last_name %> <%= customer.first_name %></td>
+      <td><%= order.order_details.count %></td>
+      <td><%= order.order_status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
