@@ -34,7 +34,6 @@ class Customer::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @order.delivery_fee = 800
     @order.save
-    binding.pry
     flash[:notice] = "Thank you for your order."
     redirect_to complete_customers_orders_path
     if params[:order][:add] == "1"
@@ -42,7 +41,8 @@ class Customer::OrdersController < ApplicationController
     end
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart|
-      OrderDetail.create(item_id: cart.item.id, order_id: @order.id, quantity: cart.quantity, making_status: 0, price: (((cart.item.price_without_tax) * 1.1).floor * cart.quantity))
+      OrderDetail.create(item_id: cart.item.id, order_id: @order.id, quantity: cart.quantity, making_status: 0, price: sub_price(price))
+      # (((cart.item.price_without_tax) * 1.1).floor * cart.quantity))
     end
     @cart_items.destroy_all
   end
