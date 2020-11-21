@@ -33,22 +33,20 @@ class Customer::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.delivery_fee = 800
-    @order.save
-    flash[:notice] = "Thank you for your order."
-    redirect_to complete_customers_orders_path
-    if params[:order][:add] == "1"
-      current_customer.address.create(address_params)
+    if @order.save
+      redirect_to complete_customers_orders_path, notice: 'Thank you for your order.'
+      @cart_items = current_customer.cart_items
+      @cart_items.each do |cart|
+        OrderDetail.create(item_id: cart.item.id, order_id: @order.id, quantity: cart.quantity, making_status: 0, price: sub_price(price))
+        # (((cart.item.price_without_tax) * 1.1).floor * cart.quantity))
+      end
+      @cart_items.destroy_all
     end
-    @cart_items = current_customer.cart_items
-    @cart_items.each do |cart|
-      OrderDetail.create(item_id: cart.item.id, order_id: @order.id, quantity: cart.quantity, making_status: 0, price: sub_price(price))
-      # (((cart.item.price_without_tax) * 1.1).floor * cart.quantity))
-    end
-    @cart_items.destroy_all
   end
 
   def show
     @order = Order.find(params[:id])
+    @order.customer_id = current_customer.id
     @order_details = @order.order_details
   end
 
