@@ -12,6 +12,7 @@ class Customer::ItemsController < ApplicationController
      @item = Item.find(params[:id])
      @cart_item = CartItem.new
      @genres = Genre.all
+     @similarity_item = Item.where(genre_id: @item.genre).where.not(id: @item.id)
     end
 
 end
