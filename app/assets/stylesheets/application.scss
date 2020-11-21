@@ -25,7 +25,7 @@
 
 // 見出しへのcss
 
-h1, h2, h3, h5 {
+h1, h2, h3, ,h4, h5, h6 {
  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
@@ -33,7 +33,7 @@ h1, h2, h3, h5 {
  margin-top: 35px;
 }
 
-.a {
+.top-body {
  width:100%;
  height:100%;
 }
@@ -213,4 +213,45 @@ footer{
 .search-button {
  margin-bottom: 40px;
  margin-top: 6px;
+}
+
+// customer/item/show
+.show-img {
+ border-radius: 4px;
+}
+
+.show-row {
+ margin-top: 40px;
+}
+
+// customer-page
+
+.active {
+ width: 24%;
+}
+
+.customer-page {
+ margin-top: 20px;
+}
+
+.personal-btn {
+ margin: 28px 0;
+ width: 50%;
+}
+
+.personal-information {
+ margin: 20px 0;
+}
+
+.customer-show {
+ margin-bottom: 20px;
+}
+
+.mypage-btn {
+ width: 100px;
+ text-align: right;
+}
+
+.btn-table {
+ height: 100px;
 }
