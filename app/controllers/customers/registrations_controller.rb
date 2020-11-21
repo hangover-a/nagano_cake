@@ -3,6 +3,12 @@
 class Customers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  
+  def create
+    super do
+      resource.update(confirmed_at: Time .now.utc)
+    end
+  end
 
   # GET /resource/sign_up
   # def new
