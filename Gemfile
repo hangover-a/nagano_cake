@@ -67,4 +67,7 @@ gem 'pry-rails'
 gem "refile",  require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
+gem 'enum_help'
+gem 'rails-i18n'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'letter_opener_web', '~> 1.0'

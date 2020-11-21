@@ -14,16 +14,7 @@
       </thead>
       <tbody>
         <% current_customer.cart_items.each do |cart_item| %>
-        <tr><table class="table table-bordered">
-      <thead>
         <tr>
-          <th>商品名</th>
-          <th>単価(税込)</th>
-          <th>数量</th>
-          <th>小計</th>
-          <th></th>
-        </tr>
-      </thead>
           <td>
             <%= attachment_image_tag cart_item.item, :image, size:"30x30" %>
             <%= cart_item.item.name %>
@@ -47,6 +38,18 @@
         <% end %>
       </tbody>
     </table>
-    <%= link_to "情報入力に進む", new_customers_order_path, data: { confirm: '買い物は以上ですか?' }, class: "btn-sm btn-primary" %>
+    <table class="table table-bordered" style="width: 20%;">
+      <tr>
+        <th>合計金額</th><td><%= total_price(@cart_items) %></td>
+      </tr>
+    </table>
+    <div class="col-xs-12">
+      <div class="text-left">
+        <%= link_to "買い物を続ける", items_path, class:"btn btn-primary btn-sm" %>
+      </div>
+    </div>
+    <div class="text-center">
+      <%= link_to "情報入力に進む", new_customers_order_path, data: { confirm: '買い物は以上ですか?' }, class: "btn-sm btn-success" %>
+    </div>
   </div>
 </div>
