@@ -1,5 +1,9 @@
 module ApplicationHelper
   
+  def sub_total(sub)
+    sub.item.price_tax_included * sub.quantity
+  end
+  
   def total_price(total)
     price = 0
     total.each do |total|
