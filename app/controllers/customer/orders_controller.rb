@@ -37,7 +37,7 @@ class Customer::OrdersController < ApplicationController
       redirect_to complete_customers_orders_path, notice: 'Thank you for your order.'
       @cart_items = current_customer.cart_items
       @cart_items.each do |cart|
-        OrderDetail.create(item_id: cart.item.id, order_id: @order.id, quantity: cart.quantity, making_status: 0, price: sub_price(price))
+        OrderDetail.create(item_id: cart.item.id, order_id: @order.id, quantity: cart.quantity, making_status: 0, price: cart.sub_price)
         # (((cart.item.price_without_tax) * 1.1).floor * cart.quantity))
       end
       @cart_items.destroy_all
@@ -47,7 +47,8 @@ class Customer::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order.customer_id = current_customer.id
-    @order_details = @order.order_details
+    @ordered_items = @order.ordered_items
+    @order.delivery_fee = 800
   end
 
   def complete

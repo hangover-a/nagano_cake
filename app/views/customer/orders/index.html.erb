@@ -14,8 +14,12 @@
     <tbody>
       <tr>
         <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-        <td><%= order.postcode %><%= order.address %><%= order.addressee %></td>
-        <td></td>
+        <td>
+          <%= order.postcode %><br>
+          <%= order.address %><br>
+          <%= order.addressee %>
+        </td>
+        <td><%= order.ordered_items %></td>
         <td><%= order.total_cost(order.ordered_items) %></td>
         <td><%= order.order_status %></td>
         <td><%= link_to "表示する", customers_order_path(order.id), class: "btn btn-primary" %></td>
