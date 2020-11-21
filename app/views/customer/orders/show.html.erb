@@ -26,13 +26,13 @@
     <h3>請求情報</h3>
     <table class="table table-bordered">
         <tr>
-          <th class="active">商品合計</th><td><%= @order.total_cost %></td>
+          <th class="active">商品合計</th><td><%= @order.total_cost.to_s(:delimited, delimiter: ',') %>円</td>
         </tr>
         <tr>
-          <th class="active">配送料</th><td><%= @order.delivery_fee %></td>
+          <th class="active">配送料</th><td><%= @order.delivery_fee.to_s(:delimited, delimiter: ',') %>円</td>
         </tr>
         <tr>
-          <th class="active"><strong>ご請求額</strong></th><td><%= @order.pricing %></td>
+          <th class="active"><strong>ご請求額</strong></th><td><%= @order.pricing.to_s(:delimited, delimiter: ',') %>円</td>
         </tr>
     </table>
   </div>
@@ -47,13 +47,13 @@
       <th class="active">小計</th>
     </tr>
   </thead>
-  <% @ordered_items.each do |ordered_item| %>
+  <% @order_details.each do |order_detail| %>
     <tbody>
       <tr>
-        <td><%= ordered_item.item.name %></td>
-        <td<%= ordered_item.order.price_tax_included(ordered_item.item.price_without_tax) %></td>
-        <td><%= ordered_item.quantity %></td>
-        <td><%= ordered_item.item.cart_items.sub_price %></td>
+        <td><%= order_detail.item.name %></td>
+        <td><%= order_detail.item.price_tax_included.to_s(:delimited, delimiter: ',') %>円</td>
+        <td><%= order_detail.quantity %></td>
+        <td><%= sub_total(order_detail).to_s(:delimited, delimiter: ',') %>円</td>
       </tr>
     </tbody>
   <% end %>
