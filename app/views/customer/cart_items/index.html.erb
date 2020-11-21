@@ -40,7 +40,7 @@
     </table>
     <table class="table table-bordered" style="width: 20%;">
       <tr>
-        <th>合計金額</th><td><%= total_cost %></td>
+        <th>合計金額</th><td><%= total_price(@cart_items).to_s(:delimited, delimiter: ',') %></td>
       </tr>
     </table>
     <div class="col-xs-12">
