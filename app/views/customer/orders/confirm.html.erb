@@ -38,13 +38,13 @@
   <tr>
     <th>商品合計</th>
     <td>
-      <%= @order.total_cost(@cart_items).to_s(:delimited, delimiter: ',') %>
+      <%= total_price(@cart_items).to_s(:delimited, delimiter: ',') %>
     </td>
   </tr>
   <tr>
     <th>請求金額</th>
     <td>
-      <%= @order.pricing(@cart_items).to_s(:delimited, delimiter: ',') %>
+      <%= pricing_money(@cart_items, @order).to_s(:delimited, delimiter: ',') %>
     </td>
   </tr>
 </table>
@@ -60,6 +60,6 @@
   <%= f.hidden_field :address, :value => @order.address %>
   <%= f.hidden_field :addressee, :value => @order.addressee %>
   <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-  <%= f.hidden_field :total_cost, :value => @order.pricing(@cart_items) %>
+  <%= f.hidden_field :total_cost, :value => pricing_money(@cart_items, @order) %>
   <%= f.submit "購入を確定する", class: "btn btn-warning" %>
 <% end %>

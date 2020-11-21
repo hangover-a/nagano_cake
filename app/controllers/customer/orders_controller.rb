@@ -37,6 +37,7 @@ class Customer::OrdersController < ApplicationController
       redirect_to complete_customers_orders_path, notice: 'Thank you for your order.'
       @cart_items = current_customer.cart_items
       @cart_items.each do |cart|
+        OrderedItem
         OrderDetail.create(item_id: cart.item.id, order_id: @order.id, quantity: cart.quantity, making_status: 0, price: cart.sub_price)
         # (((cart.item.price_without_tax) * 1.1).floor * cart.quantity))
       end

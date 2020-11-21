@@ -19,7 +19,11 @@
           <%= order.address %><br>
           <%= order.addressee %>
         </td>
-        <td><%= order.ordered_items %></td>
+        <td>
+          <% order.order_details.each do |order_detail| %>
+            <%= order_detail.item.name %>
+          <% end %>
+        </td>
         <td><%= order.total_cost(order.ordered_items) %></td>
         <td><%= order.order_status %></td>
         <td><%= link_to "表示する", customers_order_path(order.id), class: "btn btn-primary" %></td>

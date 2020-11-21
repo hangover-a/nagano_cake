@@ -28,16 +28,16 @@ class Order < ApplicationRecord
     (price * 1.1).floor
   end
 
-  def total_cost(total)
+  def total_cost
     price = 0
-    total.each do |total|
-      price += total.sub_price
+    self.order_details.each do |order_detail|
+      price += order_detail.price * order_detail.quantity
     end
     return price
   end
 
-  def pricing(cart_items)
-    self.total_cost(cart_items) + self.delivery_fee
+  def pricing
+    self.total_cost + self.delivery_fee
   end
 
 end
