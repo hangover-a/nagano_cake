@@ -1,33 +1,47 @@
-<h2>注文情報入力</h2>
-<%= form_with model: @order, url: confirm_customers_orders_path, method: :post, local: true do |order| %>
-  <h3>支払方法</h3>
-  <%= order.radio_button :payment_method, :credit_card, checked: true %>
-  <%= order.label :payment_method, "クレジットカード", {value: :credit_card, style: "display: inline-block;"} %>
-  <%= order.radio_button :payment_method, :bank_transfer %>
-  <%= order.label :payment_method, "銀行振込", {value: :bank_transfer, style: "display: inline-block;"} %>
-  <h3>お届け先</h3>
-  <%= order.radio_button :address_select, "residence", checked: true %>
-  <%= order.label :address_select, "ご自身の住所", {value: :residence, style: "display: inline-block;"} %>
-  <br>
-  <%= current_customer.postcode %><%= current_customer.address %>
-  <br>
-  <%= current_customer.last_name %><%= current_customer.first_name %>
-  <br>
-  <%= order.radio_button :address_select, "delivery_address" %>
-  <%= order.label :address_select, "登録済住所から選択", {value: :delivery_address, style: "display: inline-block;"} %>
-  <br>
-  <%= order.collection_select(:address_id, @addresses, :id, :order_address, prompt: "選択してください") %>
-  <br>
-  <%= order.radio_button :address_select, "new_address" %>
-  <%= order.label :address_select, "新しいお届け先", {value: :new_address, style: "display: inline-block;"} %>
-  <br>
-  <%= order.label :"郵便番号(ハイフンなし)" %>
-  <%= order.text_field :postcode %><br>
-  <%= order.label :"住所" %>
-  <%= order.text_field :address %><br>
-  <%= order.label :"宛名" %>
-  <%= order.text_field :addressee %><br>
-  <div class="actions">
-    <%= order.submit "確認画面へ進む", class: 'btn btn-primary' %>
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-6">
+    <h2>注文情報入力</h2>
+    <%= form_with model: @order, url: confirm_customers_orders_path, method: :post, local: true do |order| %>
+      <h3>支払方法</h3>
+      <%= order.radio_button :payment_method, :credit_card, checked: true %>
+      <%= order.label :payment_method, "クレジットカード", {value: :credit_card, style: "display: inline-block;"} %>
+      <br>
+      <%= order.radio_button :payment_method, :bank_transfer %>
+      <%= order.label :payment_method, "銀行振込", {value: :bank_transfer, style: "display: inline-block;"} %>
+      <h3>お届け先</h3>
+      <%= order.radio_button :address_select, "residence", checked: true %>
+      <%= order.label :address_select, "ご自身の住所", {value: :residence, style: "display: inline-block;"} %>
+      <br>
+      <%= current_customer.postcode %>　<%= current_customer.address %>
+      <br>
+      <%= current_customer.last_name %>　<%= current_customer.first_name %>
+      <br>
+      <%= order.radio_button :address_select, "delivery_address" %>
+      <%= order.label :address_select, "登録済住所から選択", {value: :delivery_address, style: "display: inline-block;"} %>
+      <br>
+      <%= order.collection_select(:address_id, @addresses, :id, :order_address, prompt: "選択してください") %>
+      <br>
+      <%= order.radio_button :address_select, "new_address" %>
+      <%= order.label :address_select, "新しいお届け先", {value: :new_address, style: "display: inline-block;"} %>
+      <br>
+      <table class="table">
+        <tr>
+          <th><%= order.label :"郵便番号(ハイフンなし)" %></th>
+          <td><%= order.text_field :postcode %></td>
+        </tr>
+        <tr>
+          <th><%= order.label :"住所" %></th>
+          <td><%= order.text_field :address %></td>
+        </tr>
+        <tr>
+          <th><%= order.label :"宛名" %></th>
+          <td><%= order.text_field :addressee %></td>
+        </tr>
+      </table>
+      <div class="actions">
+        <%= order.submit "確認画面へ進む", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
