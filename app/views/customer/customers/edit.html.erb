@@ -1,40 +1,48 @@
+<%= render "customers/shared/error_messages", resource: @customer %>
 <h2>登録情報編集</h2>
-<%= form_with model: @customer, local: true do |f| %>
-  <div class="field">
-    <%= f.label :name, "名前" %>
-    (姓)<%= f.text_field :last_name, autocomplete: "山田" %>
-    (名)<%= f.text_field :first_name, autocomplete: "花子" %>
+<div class="row">
+  <div class="col-xs-8">
+    <%= form_with model: @customer, local: true do |f| %>
+      <table class="table">
+        <tr>
+          <th><%= f.label :name, "名前" %></th>
+          <td>(姓)</td>
+          <td><%= f.text_field :last_name, autocomplete: "山田" %></td>
+          <td>(名)</td>
+          <td><%= f.text_field :first_name, autocomplete: "花子" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :name, "フリガナ" %></th>
+          <td>(セイ)</td>
+          <td><%= f.text_field :last_name_kana, autocomplete: "ヤマダ" %></td>
+          <td>(メイ)</td>
+          <td><%= f.text_field :first_name_kana, autocomplete: "ハナコ" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :email, "メールアドレス" %></th>
+          <td></td>
+          <td><%= f.email_field :email, autocomplete: "email" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :postcode, "郵便番号(ハイフンなし)" %></th>
+          <td></td>
+          <td><%= f.text_field :postcode %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :address, "住所" %></th>
+          <td></td>
+          <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :phone_number, "電話番号(ハイフンなし)" %></th>
+          <td></td>
+          <td><%= f.text_field :phone_number %></td>
+        </tr>
+      </table>
+      <span class="actions">
+        <%= f.submit "編集内容を保存する", class: 'btn btn-primary' %>
+        <%= link_to "退会する", quit_customers_path, class: 'btn btn-danger' %>
+      </span>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :name, "フリガナ" %>
-    (セイ)<%= f.text_field :last_name_kana, autocomplete: "ヤマダ" %>
-    (メイ)<%= f.text_field :first_name_kana, autocomplete: "ハナコ" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-    <%= f.text_field :postcode %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address, "住所" %>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone_number, "電話番号(ハイフンなし)" %>
-    <%= f.text_field :phone_number %>
-  </div>
-
-  <span class="actions">
-    <%= f.submit "編集内容を保存する", class: 'btn btn-primary' %>
-    <%= link_to "退会する", quit_customers_path, class: 'btn btn-danger' %>
-  </span>
-
-<% end %>
+</div>
