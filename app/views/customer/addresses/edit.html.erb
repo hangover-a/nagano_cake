@@ -1,18 +1,27 @@
-<h2>配送先編集</h2>
-<%= form_with model: @address, url: customers_address_path(@address.id), local: true do |f| %>
-  <div class="field">
-    <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-    <%= f.text_field :postcode %>
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-7">
+    <h2>配送先編集</h2>
+    <%= form_with model: @address, url: customers_address_path(@address.id), local: true do |f| %>
+      <table class="table">
+        <tr>
+          <th><%= f.label :postcode, "郵便番号(ハイフンなし)" %></th>
+          <td><%= f.text_field :postcode %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :address, "住所" %></th>
+          <td><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :addressee, "宛名" %></th>
+          <td><%= f.text_field :addressee %></td>
+          <td>
+            <span class="actions">
+              <%= f.submit "編集する", class: "btn btn-primary" %>
+            </span>
+          </td>
+        </tr>
+      </table>
   </div>
-  <div class="field">
-    <%= f.label :address, "住所" %>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :addressee, "宛名" %>
-    <%= f.text_field :addressee %>
-  </div>
-  <span class="actions">
-    <%= f.submit "編集する", class: "btn btn-primary" %>
-  </span>
-<% end %>
+    <% end %>
+</div>
