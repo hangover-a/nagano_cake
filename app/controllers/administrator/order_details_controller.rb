@@ -1,6 +1,6 @@
 class Administrator::OrderDetailsController < ApplicationController
   def update
-    @oreder_detail = OrderDetail.find(params[:id])
+    @order_detail = OrderDetail.find(params[:id])
     @order_detail.update(order_detail_params)
   end
   private
