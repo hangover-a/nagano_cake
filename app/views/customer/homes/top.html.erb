@@ -20,7 +20,15 @@
         <% end %>
       </tbody>
     </table>
-    関係者の方は<%= link_to 'こちら', new_administrator_session_path %>
+    　<p>関係者の方は<%= link_to 'こちら', new_administrator_session_path, class:"order-link" %></p>
+    　<p class="order-link-border">
+        オーダーケーキご依頼は
+        <%= link_to "こちら", new_order_cake_path ,class:"order-link" %>
+      </p>
+      <p class="order-link-border">
+        オーダーケーキ発注確定は
+        <%= link_to "こちら", order_cakes_path, class:"order-link" %>
+      </p>
   </div>
   <div class="col-xs-9">
     <div class="main-visual">

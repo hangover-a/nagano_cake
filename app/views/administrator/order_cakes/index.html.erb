@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-10">
+    <h3>オーダーケーキ一覧</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>顧客名</th>
+          <th>ケーキの種類</th>
+          <th>希望納期</th>
+          <th>ステータス</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_cakes.each do |order_cake| %>
+        <tr>
+          <td>
+            <%= order_cake.last_name %>
+            <%= order_cake.first_name %>
+          </td>
+          <td><%= order_cake.cake_type %></td>
+          <td><%= order_cake.delivery_date %></td>
+          <td><strong>
+            <% if order_cake.post_status == true %>
+              商品投稿前
+            <% else %>
+              商品投稿済み
+            <% end %>
+          </strong></td>
+          <td>
+            <%= link_to "詳細確認", administrator_order_cake_path(order_cake), class:"btn btn-primary btn-sm" %>
+          </td>
+        </tr>
+       <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
