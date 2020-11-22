@@ -21,14 +21,16 @@
           <% end %>
         </tbody>
       </table>
-      <p>
-        オリジナルケーキのご依頼は
-        <%= link_to "こちら", new_order_cake_path, class:"order-link" %>
-      </p>
-      <p>
-        オリジナルケーキの発注は
-        <%= link_to "こちら", order_cakes_path, class:"order-link" %>
-      </p>
+      <% if customer_signed_in? %>
+        <p>
+          オリジナルケーキのご依頼は
+          <%= link_to "こちら", new_order_cake_path, class:"order-link" %>
+        </p>
+        <p>
+          オリジナルケーキの発注は
+          <%= link_to "こちら", order_cakes_path, class:"order-link" %>
+        </p>
+      <% end %>
     </div>
     <div class="col-xs-9 col-top">
       <% @items.each do |item| %>
