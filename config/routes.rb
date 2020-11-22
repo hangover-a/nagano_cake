@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'search/search'
   # administrator
   devise_for :administrators
   namespace :administrator do
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
   }
   get 'about' => 'customer/homes#about'
   root 'customer/homes#top'
+  resources :stocks, only: [:index, :create, :destroy]
   scope module: :customer do
     get '/search' => 'search#search'
     resources :items, only: [:index,:show]
