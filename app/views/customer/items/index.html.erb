@@ -24,7 +24,7 @@
       <% if customer_signed_in? %>
         <p>
           オリジナルケーキのご依頼は
-          <%= link_to "こちら", new_order_cake_path, class:"order-link" %>
+          <%= link_to "こちら", new_order_cake_path, class:"order-link", 'data-turbolinks': false %>
         </p>
         <p>
           オリジナルケーキの発注は
