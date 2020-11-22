@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   has_many :orders
   has_many :addresses, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  has_many :order_cakes
   has_many :stocks, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true

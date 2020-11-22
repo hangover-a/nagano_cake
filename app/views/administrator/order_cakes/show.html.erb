@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-xs-12 col-offset-1 text-center">
+    <h3 class="order_cake-h3">オーダー詳細</h3>
+  </div>
+  <div class="col-xs-5 text-right">
+    <%= attachment_image_tag @order_cake, :image, size: "300x270", class: 'img-thumbnail img-responsive img_prev' %>
+  </div>
+  <div class="col-xs-5 text-right">
+    <table class="table">
+      <tr>
+        <th>顧客名</th>
+        <td>
+          <%= @order_cake.last_name %>
+          <%= @order_cake.first_name %>
+        </td>
+      </tr>
+      <tr>
+        <th>ケーキの種類</th>
+        <td><%= @order_cake.cake_type %></td>
+      </tr>
+      <tr>
+        <th>希望お届け日</th>
+        <td><%= @order_cake.delivery_date %></td>
+      </tr>
+      <tr>
+        <th>サイズ</th>
+        <td><%= @order_cake.cake_size %></td>
+      </tr>
+      <tr>
+        <th>要望・相談</th>
+        <td><%= @order_cake.cake_detail %></td>
+      </tr>
+      <tr>
+        <th>ステータス</th>
+        <td>
+          <%= form_with model: @order_cake, url: administrator_order_cake_path(@order_cake), method: :patch, local: true do |f| %>
+            <%= f.select :post_status, [["商品投稿前", true], ["商品投稿済み", false]] %>
+            <%= f.submit "変更", class: "btn btn-primary btn-sm" %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    <%= link_to "ケーキ作成画面", new_administrator_item_path, class:"btn btn-primary btn-sm" %>
+    <%= link_to "オーダー一覧", administrator_order_cakes_path, class:"btn btn-info btn-sm" %>
+  </div>
+</div>

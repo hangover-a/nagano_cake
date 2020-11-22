@@ -3,6 +3,7 @@ class Administrator::ItemsController < ApplicationController
   def new
     @item_new = Item.new
     @genres = Genre.all
+    @order_cakes = OrderCake.all
   end
 
   def index
@@ -34,7 +35,7 @@ class Administrator::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :discription, :image, :genre_id, :price_without_tax, :is_active)
+    params.require(:item).permit(:name, :discription, :image, :genre_id, :price_without_tax, :is_active, :customer_id)
   end
 
 end
