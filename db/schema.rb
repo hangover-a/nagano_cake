@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_21_144310) do
+ActiveRecord::Schema.define(version: 2020_11_22_071449) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id", null: false
@@ -114,6 +114,16 @@ ActiveRecord::Schema.define(version: 2020_11_21_144310) do
     t.integer "order_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id", "item_id"], name: "index_stocks_on_customer_id_and_item_id", unique: true
+    t.index ["customer_id"], name: "index_stocks_on_customer_id"
+    t.index ["item_id"], name: "index_stocks_on_item_id"
   end
 
 end
