@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     when Administrator
       administrator_top_path
     when Customer
-      root_path
+      root_path 'data-turbolinks': false
     end
   end
 

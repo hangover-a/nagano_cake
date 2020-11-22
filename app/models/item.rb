@@ -8,6 +8,9 @@ class Item < ApplicationRecord
   has_many :stocks, dependent: :destroy
   has_many :stock_customers, through: :stocks, source: :customer
 
+  validates :name, presence: true
+  validates :discription, presence: true, length: {minimum: 6, maximum: 100}
+
   attachment :image
 
   def price_tax_included
