@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'search/search'
   # administrator
   devise_for :administrators
   namespace :administrator do
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
   	resources :items, only: [:index,:new,:create,:show,:edit,:update,]
   	get 'top'=>'homes#top'
   	resources :genres, only: [:index,:create,:edit,:update] #show消した
+  	resources :order_cakes, only: [:index, :show, :update]
   	resources :orders, only: [:index,:show,:update] do
       resource :order_details, only: [:update], on: :member
     end
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'about' => 'customer/homes#about'
   root 'customer/homes#top'
   scope module: :customer do
+    resources :order_cakes, only: [:new, :create, :index]
+    get '/complete' => 'order_cakes#complete'
     get '/search' => 'search#search'
     resources :items, only: [:index,:show]
     get 'customer/edit' => 'customers#edit'

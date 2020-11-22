@@ -1,25 +1,25 @@
 <header class="navbar navbar-fixed-top">
   <div class="container header">
-    <nav class="nav navbar-nav col-xs-8">
-      <%= link_to root_path do %>
+    <nav class="nav navbar-nav col-xs-7">
+      <%= link_to root_path, 'data-turbolinks': false do %>
         <h4 class="inc-name">Nagano Cake <i class="fas fa-candy-cane" style="color: rgba(255,192,203);"></i></h4>
       <% end %>
     </nav>
     <nav>
-      <ul class="nav navbar-nav col-xs-4" style="padding-top: 5px;">
+      <ul class="nav navbar-nav col-xs-5 text-right" style="padding-top: 5px;">
         <% if customer_signed_in? %>
-          <li class="nav-btn" style="margin-left:0px;"><%= link_to 'マイページ', customers_path(current_customer) %></li>
+          <li class="nav-btn"><%= link_to 'マイページ', customers_path(current_customer) %></li>
           <li class="nav-btn"><%= link_to '商品一覧', items_path %></li>
           <li class="nav-btn"><%= link_to 'カート', customers_cart_items_path %></li>
           <li class="nav-btn"><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
         <% elsif administrator_signed_in? %>
-          <li class="nav-btn"><%= link_to '商品一覧', administrator_items_path %></li>
-          <li class="nav-btn"><%= link_to '会員一覧', administrator_customers_path %></li>
-          <li class="nav-btn"><%= link_to '注文履歴一覧', administrator_orders_path %></li>
-          <li class="nav-btn"><%= link_to 'ジャンル一覧', administrator_genres_path %></li>
-          <li class="nav-btn"><%= link_to 'ログアウト', destroy_administrator_session_path, method: :delete %></li>
+          <li class="nav-btn-admin"><%= link_to '商品一覧', administrator_items_path %></li>
+          <li class="nav-btn-admin"><%= link_to '会員一覧', administrator_customers_path %></li>
+          <li class="nav-btn-admin"><%= link_to '注文履歴一覧', administrator_orders_path %></li>
+          <li class="nav-btn-admin"><%= link_to 'ジャンル一覧', administrator_genres_path %></li>
+          <li class="nav-btn-admin"><%= link_to 'ログアウト', destroy_administrator_session_path, method: :delete %></li>
         <% else %>
-          <li class="nav-btn" style="margin-left:25px;"><%= link_to 'About', about_path %></li>
+          <li class="nav-btn"><%= link_to 'About', about_path %></li>
           <li class="nav-btn"><%= link_to '商品一覧', items_path %></li>
           <li class="nav-btn"><%= link_to '新規登録', new_customer_registration_path %></li>
           <li class="nav-btn"><%= link_to 'ログイン', new_customer_session_path %></li>

@@ -6,6 +6,9 @@ class Item < ApplicationRecord
   belongs_to :genre
   has_many :order_details, dependent: :destroy
 
+  validates :name, presence: true
+  validates :discription, presence: true, length: {minimum: 6, maximum: 100}
+
   attachment :image
 
   def price_tax_included
