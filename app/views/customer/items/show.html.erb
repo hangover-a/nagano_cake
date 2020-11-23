@@ -34,6 +34,7 @@
         <div id="item-<%= @item.id %>">
           <%= render partial: 'stocks/stock', locals: { item: @item } %>
         </div>
+        <%= link_to 'ストック一覧はこちら', stocks_path %>
     </div>
     <div class="col-xs-12">
       <h3>おすすめ商品</h3>
