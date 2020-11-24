@@ -1,4 +1,5 @@
 class Customer::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @cart_items = current_customer.cart_items
@@ -25,7 +26,9 @@ class Customer::CartItemsController < ApplicationController
       @cart_item = CartItem.new
       @cart_item.save
     end
+
     @cart_item = CartItem.new(cart_item_params)
+    @cart_item.customer_id = current_customer.id
     if @cart_item.save
       redirect_to customers_cart_items_path
     else
@@ -44,7 +47,6 @@ class Customer::CartItemsController < ApplicationController
 
   private
   def cart_item_params
-    params.require(:cart_item).permit(:item_id, :quantity, :customer_id)
+    params.require(:cart_item).permit(:item_id, :quantity)
   end
-
 end
