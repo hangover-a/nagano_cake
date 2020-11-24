@@ -13,12 +13,12 @@
         </tr>
         <tr class="order">
           <th>支払い方法</th>
-          <td><%= @order.payment_method %></td>
+          <td><%= @order.payment_method_i18n %></td>
         </tr>
         <th class="order">注文ステータス</th>
         <td class="order">
           <%= form_with model:@order,url:administrator_order_path, local: true do |f| %>
-          <%= f.select:order_status,["入金待ち","入金確認","発送準備中","発送済"] %>
+          <%= f.select:order_status,["入金待ち","入金確認","発送準備中","発送済み"] %>
           <%= f.submit "更新" %>
           <% end %>
         </td>
