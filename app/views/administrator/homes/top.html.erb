@@ -1,2 +1,7 @@
 <h3>管理者画面</h3>
-<span style="font-size:24px;">本日の注文件数</span><span style="margin-left:15px; font-size:24px;"><%= %>件</span>
+<span style="font-size:24px;">本日の注文件数</span>
+<span style="margin-left:15px; font-size:24px;">
+  <%= link_to administrator_orders_path  do %>
+    <%= @orders.count %>件
+  <% end %>
+</span>
