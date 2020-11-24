@@ -56,11 +56,10 @@
     </div>
     <div class="detail">
       <div>
-        <table style="line-hei">
-          <% @order_details.each do |order_detail| %>
+        <table style="line">
           <tr>
             <th>商品合計</th>
-            <td><%= (order_detail.quantity)*((order_detail.item.price_without_tax*1.1) .floor) %>円</td>
+            <td><%= @order.total_cost.to_s(:delimited, delimiter: ',') %>円</td>
           </tr>
           <tr>
             <th>送料</th>
@@ -68,9 +67,8 @@
           </tr>
           <tr>
             <th>請求金額</th>
-            <td><%= (order_detail.quantity)*((order_detail.item.price_without_tax*1.1) .floor) + @order.delivery_fee %>円</td>
+            <td><%= @order.pricing.to_s(:delimited, delimiter: ',') %>円</td>
           </tr>
-          <% end %>
         </table>
       </div>
     </div>
