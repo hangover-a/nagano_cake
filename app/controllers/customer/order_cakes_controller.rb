@@ -11,8 +11,11 @@ class Customer::OrderCakesController < ApplicationController
 
   def create
     @order_new = OrderCake.new(order_cake_params)
-    @order_new.save
-    redirect_to complete_path
+    if @order_new.save
+       redirect_to complete_path
+    else
+       render action: :new
+    end
   end
 
   def complete

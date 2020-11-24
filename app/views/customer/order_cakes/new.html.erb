@@ -12,11 +12,11 @@
     <input type="checkbox" id="check" /><label for="check">利用規約に同意します</label>
   </div>
   <%= form_with model: @order_new, url: order_cakes_path, method: :post, local: true do |f| %>
-  
+
   <%= render "layouts/errors", model: @order_new %>
-  
+
   <div class="col-xs-5 text-right">
-    <%= f.file_field :image, class: 'img_field', style: 'display:none;' %>
+    <%= f.attachment_field :image, class: 'img_field', style: 'display:none;' %>
     <%= attachment_image_tag @order_new, :image, size: "300x270", fallback: 'no_image.jpg', size: '300x270', onClick: "$('.img_field').click()", class: 'img-thumbnail img-responsive img_prev' %>
   </div>
   <div class="col-xs-6">
