@@ -26,8 +26,14 @@ class Customer::CartItemsController < ApplicationController
       @cart_item.save
     end
     @cart_item = CartItem.new(cart_item_params)
-    @cart_item.save
-    redirect_to customers_cart_items_path
+    if @cart_item.save
+      redirect_to customers_cart_items_path
+    else
+      @item = @cart_item.item
+      @genres = Genre.all
+      @similarity_item = Item.where(genre_id: @item.genre).where.not(id: @item.id)
+      render 'customer/items/show'
+    end
   end
 
   def update

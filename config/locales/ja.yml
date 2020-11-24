@@ -215,3 +215,20 @@ ja:
         image: 写真
         cake_size: サイズ
         delivery_date: 希望お届け日
+
+ja:
+  activerecord:
+    attributes:
+      item:
+        name: 商品名
+        discription: 商品説明
+        image: 写真
+        genre_id: ジャンル
+        price_without_tax: 税抜価格
+        is_active: ステータス
+
+ja:
+  activerecord:
+    attributes:
+      cart_item:
+        quantity: 数量

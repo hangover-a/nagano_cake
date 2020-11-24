@@ -22,9 +22,14 @@ class Administrator::ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.save
-    redirect_to administrator_items_path
+    @item_new = Item.new(item_params)
+    if @item_new.save
+      redirect_to administrator_items_path
+    else
+      render action: :new
+      @genres = Genre.all
+      @order_cakes = OrderCake.all
+    end
   end
 
   def update
