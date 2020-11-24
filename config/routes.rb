@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   }
   get 'about' => 'customer/homes#about'
   root 'customer/homes#top'
+  resources :stocks, only: [:index, :create, :destroy]
   scope module: :customer do
     resources :order_cakes, only: [:new, :create, :index]
     get '/complete' => 'order_cakes#complete'
