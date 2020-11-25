@@ -71,3 +71,7 @@ gem 'enum_help'
 gem 'rails-i18n'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'letter_opener_web', '~> 1.0'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
