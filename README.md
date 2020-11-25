@@ -41,7 +41,7 @@ $rails db:migrate
 ・Ruby<br>
 ・JavaScript<br>
 フレームワーク<br>
-・Ruby on Rails
+・Ruby on Rails<br>
 ・jQuery
 # 作成者
 チーム名　【 hangover 】<br>
