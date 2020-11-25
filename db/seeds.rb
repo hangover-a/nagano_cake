@@ -20,7 +20,7 @@ Customer.create!(
    postcode: '3960900',
    address: '大阪府浪速区恵美須2544-8',
    phone_number: '020145698',
-   is_deleted: false
+   is_deleted: "false"
    )
 Customer.create!(
    email: 'customer1@com',
@@ -32,7 +32,7 @@ Customer.create!(
    postcode: '3960811',
    address: '大阪府大阪市堺南252-96',
    phone_number: '020145677',
-   is_deleted: false
+   is_deleted: "false"
    )
 Customer.create!(
    email: 'customer2@com',
@@ -44,7 +44,7 @@ Customer.create!(
    postcode: '3967478',
    address: '東京都墨田区岡南125-85',
    phone_number: '020145677',
-   is_deleted: false
+   is_deleted: "false"
    )
 Customer.create!(
    email: 'customer4@com',
@@ -56,7 +56,7 @@ Customer.create!(
    postcode: '3964740',
    address: '山口県山口市長谷74‐98',
    phone_number: '020145787',
-   is_deleted: true
+   is_deleted: "false"
    )
 Customer.create!(
    email: 'customer5@com',
@@ -68,7 +68,7 @@ Customer.create!(
    postcode: '3978457',
    address: '沖縄県那覇市74‐98',
    phone_number: '02018887',
-   is_deleted: false
+   is_deleted: "false"
    )
 Customer.create!(
    email: 'customer6@com',
@@ -80,32 +80,32 @@ Customer.create!(
    postcode: '3969994',
    address: '山口県山口山の中458-96',
    phone_number: '020177454',
-   is_deleted: false
+   is_deleted: "false"
    )
 
 
 Genre.create!(
    name: 'ケーキ',
-   is_active: 'true'
+   is_active: "true"
 )
 
 Genre.create!(
    name: 'マドレーヌ',
-   is_active: 'true'
+   is_active: "true"
 )
 Genre.create!(
    name: 'クッキー',
-   is_active: true
+   is_active: "true"
 )
 
 Genre.create!(
    name: 'マフィン',
-   is_active: true
+   is_active: "true"
 )
 
 Genre.create!(
    name: 'アイスケーキ',
-   is_active: true
+   is_active: "true"
 )
 
 Item.create!(
@@ -114,7 +114,7 @@ Item.create!(
    discription: '1口食べたら手が止まらなくなる、nagano cake1番の人気メニューです。',
    price_without_tax: 4500,
    image: open("./db/fixtures/cake.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 1,
@@ -122,7 +122,7 @@ Item.create!(
    discription: '見た目も味もゴージャス！！女子会向けの1品です。',
    price_without_tax: 4200,
    image: open("./db/fixtures/cake2.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 1,
@@ -130,7 +130,7 @@ Item.create!(
    discription: '熟成チーズを使用したしっとりチーズケーキ。丁度いい甘さが人気です。',
    price_without_tax: 5200,
    image: open("./db/fixtures/cheese.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 4,
@@ -138,7 +138,7 @@ Item.create!(
    discription: '外はサクサク中はふわっふわ、おやつにいかがですか？',
    price_without_tax: 700,
    image: open("./db/fixtures/muffin.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 4,
@@ -146,7 +146,7 @@ Item.create!(
    discription: 'マフィンとケーキのハーフ。何とも言えない味にはまる人続出。',
    price_without_tax: 900,
    image: open("./db/fixtures/cake1.jpg"),
-   is_active: false
+   is_active: "true"
 )
 Item.create!(
    genre_id: 3,
@@ -154,7 +154,7 @@ Item.create!(
    discription: 'ドライフルーツとクッキーの夢のコラボ。非常に面白い味が楽しめます。',
    price_without_tax: 350,
    image: open("./db/fixtures/cukky.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 1,
@@ -162,7 +162,7 @@ Item.create!(
    discription: '甘い！！！！でもうまい！！とにかく食べてみてください！',
    price_without_tax: 3900,
    image: open("./db/fixtures/cake3.jpg"),
-   is_active: false
+   is_active: "true"
 )
 Item.create!(
    genre_id: 1,
@@ -170,7 +170,7 @@ Item.create!(
    discription: 'とても個性的なケーキ！もらったら嬉しいですね。ぜひどうぞ。',
    price_without_tax: 6200,
    image: open("./db/fixtures/cake4.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 3,
@@ -178,7 +178,7 @@ Item.create!(
    discription: 'サクサクの食感がたまらない、甘さが控えめなのでバクバク食べれます。',
    price_without_tax: 250,
    image: open("./db/fixtures/cukky2.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 1,
@@ -186,7 +186,7 @@ Item.create!(
    discription: '季節外れですって？そんなことはありません。パンプキンの甘さを100％だしきりました。',
    price_without_tax: 4200,
    image: open("./db/fixtures/cake5.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 1,
@@ -194,7 +194,7 @@ Item.create!(
    discription: 'デザインも味もどちらもレベルが高い。チョコ細工の忍者を口の中で楽しんでください。',
    price_without_tax: 1400,
    image: open("./db/fixtures/cake7.jpg"),
-   is_active: true
+   is_active: "true"
 )
 Item.create!(
    genre_id: 1,
@@ -202,5 +202,5 @@ Item.create!(
    discription: 'フルーツとチョコの相性がとんでまない。味の宝石箱じゃぁぁ～～！',
    price_without_tax: 5200,
    image: open("./db/fixtures/cake8.jpg"),
-   is_active: true
+   is_active: "true"
 )
