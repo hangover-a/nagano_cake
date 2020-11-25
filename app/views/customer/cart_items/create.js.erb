@@ -1,0 +1,2 @@
+$("#form-ajax").html("<%= j(render partial: 'form', locals: { cart_items: @cart_items }) %>");
+$("#form-ajax").append("<%= @cart_item.sub_price.to_s(:delimited, delimiter: ',') %>");

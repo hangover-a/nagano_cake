@@ -12,8 +12,8 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
-        <%= render 'form', locals: { cart_items: @cart_items} %>
+      <tbody id="form-ajax">
+        <%= render partial: 'form', locals: { cart_items: @cart_items } %>
       </tbody>
     </table>
     <table class="table table-bordered" style="width: 20%;">
