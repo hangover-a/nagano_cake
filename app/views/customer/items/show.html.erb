@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row show-row">
+    <div class="col-xs-3">
+      <table class="table  table-bordered genre-table">
+        <thead>
+          <tr><th>ジャンル検索</th></tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <td><%= link_to genre.name, search_path('search[value]': genre.id, 'search[how]': "match") %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-4">
+      <%= attachment_image_tag @item, :image, size:"380x285", class: "show-img" %>
+    </div>
+    <div class="col-xs-4 col-xs-offset-right-1 text-left">
+        <div>
+          <h3><%= @item.name %></h3>
+          <p><%= @item.discription %></p>
+          <p>￥<%= (@item.price_without_tax*1.1) .floor %>(税込）</p>
+          <div class="field">
+            <%= form_with model: @cart_item, url: customers_cart_items_path, method: :post ,local: true do |f| %>
+              <%= f.number_field :quantity, min:1, placeholder: "個数選択" %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+        <div id="item-<%= @item.id %>">
+          <%= render partial: 'stocks/stock', locals: { item: @item } %>
+        </div>
+        <%= link_to 'ストック一覧はこちら', stocks_path %>
+        <%= render "layouts/errors", model: @cart_item %>
+    </div>
+    <div class="col-xs-12">
+      <h3>おすすめ商品</h3>
+      <% @similarity_item.first(5).each do |item| %>
+        <div class="box" style="float:left; margin-right:20px;">
+          <%= link_to item_path(item.id) do %>
+            <%= attachment_image_tag item, :image, size: "190x150", class: "img_hover" %><br>
+          <% end %>
+          <p class="fas fa-chevron-circle-right item-name"><%=  item.name %></p><br>
+          <p class="fas fa-chevron-circle-right">￥<%= item.price_without_tax %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

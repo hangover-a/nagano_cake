@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-xs-7 customer-page">
+    <h2 class="customer-show">マイページ</h2>
+    <table class="personal-btn">
+      <tr>
+        <th>登録情報</th>
+        <td class="">
+          <%= link_to customer_edit_path do %>
+            <button type="button" class="btn btn-primary btn-sm">編集する</button>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_customer_password_path do %>
+            <button type="button" class="btn btn-primary btn-sm">パスワードを変更する</button>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    <table class="table table-bordered personal-information">
+      <tr>
+        <th class="active">氏名</th><td><%= current_customer.last_name %>  <%= current_customer.first_name %></td>
+      </tr>
+      <tr>
+        <th class="active">カナ</th><td><%= current_customer.last_name_kana %>  <%= current_customer.first_name_kana %></td>
+      </tr>
+      <tr>
+        <th class="active">郵便番号</th><td><%= current_customer.postcode %></td>
+      </tr>
+      <tr>
+        <th class="active">住所</th><td><%= current_customer.address %></td>
+      </tr>
+      <tr>
+        <th class="active">電話番号</th><td><%= current_customer.phone_number %></td>
+      </tr>
+      <tr>
+        <th class="active">メールアドレス</th><td><%= current_customer.email %></td>
+      </tr>
+    </table>
+    <table class="btn-table">
+      <tr>
+        <th>配送先</th>
+        <td class="mypage-btn">
+          <%= link_to customers_addresses_path do %>
+            <button type="button" class="btn btn-primary btn-sm">一覧を見る</button>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>注文履歴</th>
+        <td class="mypage-btn">
+          <%= link_to customers_orders_path do %>
+            <button type="button" class="btn btn-primary btn-sm">一覧を見る</button>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+

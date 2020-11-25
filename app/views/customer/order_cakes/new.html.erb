@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <h3>オリジナルケーキ相談フォーム</h3>
+    <h5 class="order-h5">利用規約</h5>
+    <p class="order-rules">
+      オリジナルケーキご検討のお客様はこちらのフォームに必要事項を具体的にご記入の上で送信をお願いします。<br>
+      フォーム送信をしてもご注文確定ではありませんのでご了承ください。フォーム送信日から5日以内にこちらか<br>
+      らご登録していただいているメールまたはお電話宛に相談内容の確認や作成にあたっての提案などをさせていた<br>
+      だきますのでご承知おきください。フォーム内全ての項目に記入、チェックをお願いします。(写真も必須です)<br>
+      ※写真は絵やイメージでも構いませんので必ず添付をお願いします。
+    </p>
+    <input type="checkbox" id="check" /><label for="check">利用規約に同意します</label>
+  </div>
+  <%= form_with model: @order_new, url: order_cakes_path, method: :post, local: true do |f| %>
+
+  <%= render "layouts/errors", model: @order_new %>
+
+  <div class="col-xs-5 text-right">
+    <%= f.attachment_field :image, class: 'img_field', style: 'display:none;' %>
+    <%= attachment_image_tag @order_new, :image, size: "300x270", fallback: 'no_image.jpg', size: '300x270', onClick: "$('.img_field').click()", class: 'img-thumbnail img-responsive img_prev' %>
+  </div>
+  <div class="col-xs-6">
+    <table class="order-table">
+      <tr>
+        <th><%= f.label :"ケーキの種類", class:"form-inline" %></th>
+        <td><%= f.text_field :cake_type, size: "28" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :"希望お届け日" %>(最短8日)</th>
+        <td><%= f.date_field :delivery_date %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :"サイズ", data: { confirm: '買い物は以上ですか?' } %></th>
+        <td>
+          <%= f.radio_button :cake_size, "3号" %>3号
+          <%= f.radio_button :cake_size, "4号" %>4号
+          <%= f.radio_button :cake_size, "5号" %>5号
+          <%= f.radio_button :cake_size, "6号" %>6号
+          <%= f.radio_button :cake_size, "7号" %>7号
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :"要望・相談" %><br>(具体的にお願いします)</th>
+        <td><%= f.text_area :cake_detail, size: "30x6" %></td>
+      </tr>
+      <tr>
+        <th>
+          <td>
+            <%= f.hidden_field :customer_id, value: current_customer.id %>
+            <%= f.hidden_field :last_name, value: current_customer.last_name %>
+            <%= f.hidden_field :first_name, value: current_customer.first_name %>
+            <%= f.submit "送信する", id: "submit", class:"btn btn-primary btn-sm" %>
+          </td>
+        </th>
+      </tr>
+    </table>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,304 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css2？family = Modak＆ display = swap');
+ @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap');
+
+* {
+ margin :0;
+ padding: 0;
+}
+
+// 見出しへのcss
+
+h1, h2, h3, ,h4, h5, h6 {
+ font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.about-h1 {
+ margin-top: 35px;
+}
+
+.top-body {
+ width:100%;
+ height:100%;
+}
+// .container {
+//  margin: 0;
+//  padding: 0;
+// }
+
+// header
+
+.inc-name {
+ font-family: 'Modak', cursive;
+ font-weight: 600;
+ font-size: 20px;
+}
+
+a {
+ text-decoration : none;
+ color : inherit;
+}
+
+.navbar {
+ position: relative;
+ width: 100vw;
+ height: 70px;
+ background-color: rgba(230,230,250,0.8);
+ margin-bottom: 0;
+}
+
+.header {
+ position: absolute;
+ top: 14px;
+ left: 150px;
+}
+
+.nav-btn {
+  margin-left: 40px;
+}
+
+.nav-btn-admin {
+ margin-left: 8px;
+}
+
+.navbar-nav > li > a {
+ padding: 4px;
+}
+
+
+// footer
+html {
+ position: relative;
+ min-height: 100%;
+}
+body{
+ padding-bottom: 0;
+}
+footer{
+ background-color: rgb(255,235,205);
+ min-height: 25px;
+ width: 100%;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ margin-bottom: 0;
+ text-align: center;
+ margin-top: 40px;
+}
+.footer {
+ padding: 5px;
+ font-size: 10px;
+}
+
+// customer/top
+
+.about_block {
+ text-align: center;
+}
+
+// top画像スライドショー
+.main-visual {
+ width: 750px;
+ height: 280px;
+}
+
+#images {
+ width: 750px;
+ height: 280px;
+}
+
+.main-visual1 {
+ width: 750px;
+ height: 280px;
+ background-image: url(cake.jpg);
+ background-size: cover;
+ background-position: center;
+ border-radius: 4px;
+ text-align: center;
+}
+
+.main-visual2 {
+ width: 750px;
+ height: 280px;
+ background-image: url(cake_2.jpg);
+ background-size: cover;
+ background-position: center;
+ border-radius: 4px;
+ text-align: center;
+}
+
+.main-visual3 {
+ width: 750px;
+ height: 280px;
+ background-image: url(cake_3.jpg);
+ background-size: cover;
+ background-position: center;
+ border-radius: 4px;
+ text-align: center;
+}
+
+.main-visual4 {
+ width: 750px;
+ height: 280px;
+ background-image: url(cake_4.jpg);
+ background-size: cover;
+ background-position: center;
+ border-radius: 4px;
+ text-align: center;
+}
+
+.row-top {
+ margin-top: 30px;
+}
+
+
+// プレビュー機能
+.img_prev:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.05, 1.05);
+}
+
+// itemのindex
+
+
+.col-top {
+ margin-top:38px;
+ margit-bottom: 30px;
+}
+
+.img_hover {
+  border-radius: 8px;
+}
+.img_hover:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transform: scale(1.1, 1.1);
+}
+
+.item-name {
+ margin-top: 12px;
+}
+
+// item/new
+.item-new-h3 {
+ margin: 20px 0 28px 0;
+}
+
+// customer/about
+.about-body {
+ margin-top: 20px;
+ margin-bottom: 20px;
+}
+
+// customer/top item/index
+.genre-table {
+ width: 230px;
+}
+
+.name-search {
+ width: 230px;
+ margin-bottom: 26px;
+ margin-right: 20px;
+}
+
+.search-button {
+ margin-bottom: 40px;
+ margin-top: 6px;
+}
+
+.order-link {
+ font-weight: 600;
+}
+
+.order-link-border {
+ margin-bottom: 15px;
+}
+
+// customer/item/show
+.show-img {
+ border-radius: 4px;
+}
+
+.show-row {
+ margin-top: 40px;
+}
+
+// customer-page
+
+.active {
+ width: 24%;
+}
+
+.customer-page {
+ margin-top: 20px;
+}
+
+.personal-btn {
+ margin: 28px 0;
+ width: 50%;
+}
+
+.personal-information {
+ margin: 20px 0;
+}
+
+.customer-show {
+ margin-bottom: 20px;
+}
+
+.mypage-btn {
+ width: 100px;
+ text-align: right;
+}
+
+.btn-table {
+ height: 100px;
+}
+
+// customer/order_cake
+.order-h5 {
+ margin-top: 18px;
+}
+
+.order-table {
+ width: 480px;
+ height: 290px;
+}
+
+.order-rules {
+ margin-bottom: 10px;
+}
+
+#check {
+ margin-bottom: 20px;
+}
+// admin/order_cake
+
+.order_cake-btn {
+ margin-left: 10px;
+}
+
+.order_cake-h3 {
+ margin: 15px 0 30px 0;
+}
+
+.sessions {
+ margin: 28px 0 30px 0;
+}

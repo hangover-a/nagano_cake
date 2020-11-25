@@ -1,0 +1,84 @@
+<h2>注文情報確認</h2>
+<div class="row">
+  <div class="col-xs-8">
+    <div class="row">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="active col-xs-6">商品名</th>
+            <th class="active col-xs-2">単価(税込)</th>
+            <th class="active col-xs-2">数量</th>
+            <th class="active col-xs-2">小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag cart.item, :image, size: "50x50" %>
+                <%= cart.item.name %>
+              </td>
+              <td>
+                <%= cart.item.price_tax_included.to_s(:delimited, delimiter: ',') %>
+              </td>
+              <td>
+                <%= cart.quantity %>
+              </td>
+              <td>
+                <%= cart.sub_price.to_s(:delimited, delimiter: ',') %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <table class="table table-bordered">
+      <tr>
+        <th class="active">送料</th>
+        <td>
+          <%= @order.delivery_fee %>
+        </td>
+      </tr>
+      <tr>
+        <th class="active">商品合計</th>
+        <td>
+          <%= total_price(@cart_items).to_s(:delimited, delimiter: ',') %>
+        </td>
+      </tr>
+      <tr>
+        <th class="active">請求金額</th>
+        <td>
+          <%= pricing_money(@cart_items, @order).to_s(:delimited, delimiter: ',') %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <table class="table">
+      <tr>
+        <th><strong>支払方法</strong></th>
+        <td><%= @order.payment_method_i18n %></td>
+      </tr>
+      <tr>
+        <th><strong>お届け先</strong></th>
+        <td>
+          <%= @order.postcode %><%= @order.address %><br>
+          <%= @order.addressee %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-xs-6"></div>
+</div>
+<%= form_with model: @order, url: customers_orders_path, method: :post, local: true do |f| %>
+  <%= f.hidden_field :postcode, :value => @order.postcode %>
+  <%= f.hidden_field :address, :value => @order.address %>
+  <%= f.hidden_field :addressee, :value => @order.addressee %>
+  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+  <%= f.hidden_field :total_cost, :value => pricing_money(@cart_items, @order) %>
+  <%= f.submit "購入を確定する", class: "btn btn-warning" %>
+<% end %>

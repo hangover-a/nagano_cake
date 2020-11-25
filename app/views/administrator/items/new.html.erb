@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <h3 class="item-new-h3">商品新規登録</h3>
+  </div>
+  <%= render "layouts/errors", model: @item_new %>
+  <%= form_with model: @item_new, url: administrator_items_path, method: :post, local:true do |f| %>
+    <div class="col-xs-5 text-right">
+      <%= f.file_field :image, class: 'img_field', style: 'display:none;' %>
+      <%= attachment_image_tag @item_new, :image, :fill, 300, 300, fallback: 'no_image.jpg', size:'300x300', onClick: "$('.img_field').click()", class: 'img-thumbnail img-responsive img_prev' %>
+    </div>
+    <div class="col-xs-5">
+      <table class="table">
+        <tr>
+          <th><%= f.label :"商品名" %></th>
+          <td><%= f.text_field :name, size: "28" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"商品説明" %></th>
+          <td><%= f.text_area :discription, class: "discription-form", size: "30x4" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"ジャンル" %></th>
+          <td><%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: "選択してください"}) %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"税抜価格" %></th>
+          <td><%= f.text_field :price_without_tax, size: "28" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"販売ステータス" %></th>
+          <td><%= f.select :is_active, [["販売中", true], ["売り切れ", false]], {include_blank: true} %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"顧客(オーダーの場合のみ)" %></th>
+          <td><%= f.collection_select(:customer_id, OrderCake.all, :customer_id, :full_name ) %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-xs-12 text-center">
+      <%= f.submit "新規投稿", class: "btn btn-primary btn-sm" %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

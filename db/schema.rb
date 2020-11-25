@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_094309) do
+ActiveRecord::Schema.define(version: 2020_11_22_071449) do
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "costomer_id", null: false
+    t.integer "customer_id", null: false
     t.string "postcode", null: false
     t.string "address", null: false
     t.string "addressee", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_094309) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "costomer_id", null: false
+    t.integer "customer_id", null: false
     t.integer "item_id", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
@@ -57,12 +57,16 @@ ActiveRecord::Schema.define(version: 2020_11_12_094309) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "name", null: false
+    t.string "name", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -70,19 +74,44 @@ ActiveRecord::Schema.define(version: 2020_11_12_094309) do
 
   create_table "items", force: :cascade do |t|
     t.integer "genre_id", null: false
-    t.integer "name", null: false
+    t.integer "customer_id"
+    t.string "name", null: false
     t.text "discription", null: false
-    t.string "price_without_tax", null: false
+    t.integer "price_without_tax", null: false
     t.string "image_id", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_cakes", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "cake_type", null: false
+    t.string "delivery_date", null: false
+    t.text "cake_detail", null: false
+    t.string "image_id", null: false
+    t.string "cake_size", null: false
+    t.boolean "post_status", default: true
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "item_id", null: false
+    t.integer "price", null: false
+    t.integer "quantity", null: false
+    t.integer "making_status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.integer "costomer_id", null: false
+    t.integer "customer_id", null: false
     t.integer "delivery_fee", null: false
-    t.string "total_cost", null: false
+    t.integer "total_cost", null: false
     t.integer "payment_method", default: 0, null: false
     t.string "postcode", null: false
     t.string "address", null: false
@@ -90,7 +119,16 @@ ActiveRecord::Schema.define(version: 2020_11_12_094309) do
     t.integer "order_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["id"], name: "index_orders_on_id"
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id", "item_id"], name: "index_stocks_on_customer_id_and_item_id", unique: true
+    t.index ["customer_id"], name: "index_stocks_on_customer_id"
+    t.index ["item_id"], name: "index_stocks_on_item_id"
   end
 
 end

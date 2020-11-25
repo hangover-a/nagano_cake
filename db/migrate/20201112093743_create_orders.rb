@@ -2,9 +2,9 @@ class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
 
-      t.integer :costomer_id, null: false
+      t.integer :customer_id, null: false
       t.integer :delivery_fee, null: false
-      t.string :total_cost, null: false
+      t.integer :total_cost, null: false
       t.integer :payment_method, null: false, default: 0
       t.string :postcode, null: false
       t.string :address, null: false
