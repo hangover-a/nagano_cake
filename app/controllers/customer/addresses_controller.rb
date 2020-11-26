@@ -2,14 +2,15 @@ class Customer::AddressesController < ApplicationController
 
   def index
     @address = Address.new
-    @addresses = Address.where(customer_id: current_customer.id)
+    @addresses = current_customer.addresses.all
   end
 
   def create
+    @addresses = current_customer.addresses.all
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     @address.save
-    redirect_to customers_addresses_path
+    render :create
   end
 
   def edit
@@ -25,7 +26,8 @@ class Customer::AddressesController < ApplicationController
   def destroy
     @address = Address.find_by(id: params[:id], customer_id: current_customer.id)
     @address.destroy
-    redirect_to customers_addresses_path
+    @addresses = current_customer.addresses.all
+    render :destroy
   end
 
   private
