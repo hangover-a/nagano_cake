@@ -1,7 +1,8 @@
 class Administrator::HomesController < ApplicationController
 
   def top
-    @orders = Order.where(created_at: 1.day.ago.all_day)
+    now = Time.current
+    @orders = Order.where(created_at: now.all_day)
   end
 
 end
