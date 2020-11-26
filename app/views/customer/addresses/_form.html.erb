@@ -1,0 +1,23 @@
+<%= form_with model: address, url: customers_addresses_path do |f| %>
+  <table class="table">
+    <tr>
+      <th><%= f.label :postcode, "郵便番号(ハイフンなし)" %></th>
+      <td><%= f.text_field :postcode %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :address, "住所" %></th>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :addressee, "宛名" %></th>
+      <td>
+        <%= f.text_field :addressee %>
+      </td>
+      <td>
+        <span class="actions">
+          <%= f.submit "登録する", class: "btn btn-success" %>
+        </span>
+      </td>
+    </tr>
+  </table>
+<% end %>
