@@ -113,55 +113,27 @@ footer{
 }
 
 // top画像スライドショー
-.main-visual {
+#slideimage {
  width: 750px;
  height: 280px;
-}
-
-#images {
- width: 750px;
- height: 280px;
-}
-
-.main-visual1 {
- width: 750px;
- height: 280px;
+ transition: background-image 2.5S ease;
  background-image: url(cake.jpg);
  background-size: cover;
  background-position: center;
  border-radius: 4px;
- text-align: center;
 }
 
-.main-visual2 {
- width: 750px;
- height: 280px;
- background-image: url(cake_2.jpg);
- background-size: cover;
- background-position: center;
- border-radius: 4px;
+.dummy {
+ height: 70px;
+}
+.top-text {
  text-align: center;
+ color: white;
+ line-height: 140px;
+ margin: 0;
+ background-color: rgba(0,0,0,0.2);
 }
 
-.main-visual3 {
- width: 750px;
- height: 280px;
- background-image: url(cake_3.jpg);
- background-size: cover;
- background-position: center;
- border-radius: 4px;
- text-align: center;
-}
-
-.main-visual4 {
- width: 750px;
- height: 280px;
- background-image: url(cake_4.jpg);
- background-size: cover;
- background-position: center;
- border-radius: 4px;
- text-align: center;
-}
 
 .row-top {
  margin-top: 30px;
