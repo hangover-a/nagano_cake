@@ -13,7 +13,7 @@ class Customer::CartItemsController < ApplicationController
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to customers_cart_items_path
+    @cart_items = current_customer.cart_items
   end
 
   def create
@@ -48,7 +48,7 @@ class Customer::CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
-    redirect_to customers_cart_items_path
+    @cart_items = current_customer.cart_items
   end
 
   private
