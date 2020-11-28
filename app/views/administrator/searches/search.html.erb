@@ -1,0 +1,23 @@
+<div class="row row-top">
+    <h3 style="padding-left:150px;">検索結果一覧</h3>
+    <div class="col-xs-3 col-top">
+    </div>
+
+    <div class="col-xs-9 col-top">
+    <% if @datas.empty? %>
+      <h2 class="text-center">該当する商品はありません</h2>
+    <% end %>
+      <% @datas.each do |data| %>
+        <div class="box" style="float:left; margin-right:20px;">
+          <%= link_to administrator_item_path(data.id) do %>
+            <%= attachment_image_tag data, :image, size: "190x150", class: "img_hover" %><br>
+          <% end %>
+          <p class="fas fa-chevron-circle-right item-name"><%=  data.name %></p><br>
+          <p class="fas fa-chevron-circle-right">￥<%= data.price_without_tax %></p>
+        </div>
+      <% end %>
+      <div class="pagination col-xs-text-center">
+        <%= paginate @datas %>
+      </div>
+    </div>
+  </div>
