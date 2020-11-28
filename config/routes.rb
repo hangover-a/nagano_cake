@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index,:show,:edit,:update]
   	resources :items, only: [:index,:new,:create,:show,:edit,:update,]
   	get 'top'=>'homes#top'
+  	get 'search' => 'searches#search'
   	resources :genres, only: [:index,:create,:edit,:update] #show消した
   	resources :order_cakes, only: [:index, :show, :update]
   	resources :orders, only: [:index,:show,:update] do
