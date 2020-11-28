@@ -5,8 +5,12 @@ class Customer::OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new
-    @addresses = Address.where(customer_id: current_customer.id)
+    if current_customer.cart_items.empty?
+      redirect_to items_path
+    else
+      @order = Order.new
+      @addresses = Address.where(customer_id: current_customer.id)
+    end
   end
 
   def confirm
