@@ -4,6 +4,13 @@
 .order {
   font-size: 20px;
   height: 50px;
+}
+
+.order td{
+  width: 500px;
+}
+
+.order th{
   width: 200px;
 }
 
@@ -17,4 +24,9 @@
 .orders .detail {
   font-size: 20px;
   align-self: flex-end;
+}
+
+.orders .detail .details th {
+  padding-left: 60px;
+  padding-right: 30px;
 }
