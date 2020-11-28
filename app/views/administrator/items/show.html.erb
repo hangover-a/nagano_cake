@@ -20,7 +20,9 @@
       <tr>
         <th>税込価格(税抜価格)</th>
         <td>
-          <strong><%= @tax_price.to_s(:delimited, delimiter: ',') %>(<%= @item.price_without_tax.to_s(:delimited, delimiter: ',') %>)円</strong>
+          <strong>
+            <%= @tax_price.to_s(:delimited, delimiter: ',') %> (<%= @item.price_without_tax.to_s(:delimited, delimiter: ',') %>)円
+          </strong>
         </td>
       </tr>
       <tr>
