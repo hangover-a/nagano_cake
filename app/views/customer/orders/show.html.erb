@@ -26,13 +26,13 @@
     <h3>請求情報</h3>
     <table class="table table-bordered">
         <tr>
-          <th class="active">商品合計</th><td><%= @order.total_cost.to_s(:delimited, delimiter: ',') %>円</td>
+          <th class="active">商品合計</th><td class="col-xs-2"><%= @order.total_cost.to_s(:delimited, delimiter: ',') %>円</td>
         </tr>
         <tr>
-          <th class="active">配送料</th><td><%= @order.delivery_fee.to_s(:delimited, delimiter: ',') %>円</td>
+          <th class="active">配送料</th><td class="col-xs-2"><%= @order.delivery_fee.to_s(:delimited, delimiter: ',') %>円</td>
         </tr>
         <tr>
-          <th class="active"><strong>ご請求額</strong></th><td><%= @order.pricing.to_s(:delimited, delimiter: ',') %>円</td>
+          <th class="active"><strong>ご請求額</strong></th><td class="col-xs-2"><%= @order.pricing.to_s(:delimited, delimiter: ',') %>円</td>
         </tr>
     </table>
   </div>

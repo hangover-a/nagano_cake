@@ -1,37 +1,45 @@
 <div class="row">
   <h2>商品詳細</h2>
-  <div class="col-xs-4">
+  <div class="col-xs-3">
     <%= attachment_image_tag(@item, :image, :fill, 250, 230,) %>
   </div>
-  <div class="col-xs-6">
-    <span>
-      <spam>商品名</spam>
-      <spam><%= @item.name %></spam>
-    </span><br>
-    <span>
-      <spam>商品説明</spam>
-      <spam><%= @item.discription %></spam>
-    </span><br>
-    <span>
-      <spam>ジャンル</spam>
-      <spam><%= @item.genre.name %></spam>
-    </span><br>
-    <span>
-      <spam>税込価格(税抜価格)</spam>
-      <spam><%= @tax_price.to_s(:delimited, delimiter: ',') %>(<%= @item.price_without_tax.to_s(:delimited, delimiter: ',') %>)</spam>
-    </span><br>
-    <span>
-      <spam>販売ステータス</spam>
-      <spam>
-        <% if @item.is_active == true %>
-          <spam>販売中</spam>
-        <% else %>
-          <spam>販売停止中</spam>
-        <% end %>
-      </spam>
-    </span>
+  <div class="col-xs-8">
+    <table class="table">
+      <tr>
+        <th>商品名</th>
+        <td><%= @item.name %></td>
+      </tr>
+      <tr>
+        <th>商品説明</th>
+        <td><%= @item.discription %></td>
+      </tr>
+      <tr>
+        <th>ジャンル</th>
+        <td><%= @item.genre.name %></td>
+      </tr>
+      <tr>
+        <th>税込価格(税抜価格)</th>
+        <td>
+          <strong><%= @tax_price.to_s(:delimited, delimiter: ',') %>(<%= @item.price_without_tax.to_s(:delimited, delimiter: ',') %>)円</strong>
+        </td>
+      </tr>
+      <tr>
+        <th>販売ステータス</th>
+        <td>
+          <% if @item.is_active == true %>
+            <spam>販売中</spam>
+          <% else %>
+            <spam>販売停止中</spam>
+          <% end %>
+        </td>
+      </tr>
+    </table>
   </div>
-  <div class="col-xs-2">
-    <%= link_to "編集する", edit_administrator_item_path(@item), class: "btn btn-primary" %>
+  <div class="col-xs-1"></div>
+</div>
+<div class="row">
+  <div class="col-xs-8"></div>
+  <div class="col-xs-4">
+    <%= link_to "編集する", edit_administrator_item_path(@item), class: "btn btn-primary", 'data-turbolinks': false %>
   </div>
 </div>
