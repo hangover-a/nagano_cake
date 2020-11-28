@@ -3,7 +3,8 @@ class Customer::SearchController < ApplicationController
   def search
     @value = params["search"]["value"]
     @how = params["search"]["how"]
-    datas = search_for(@how, @value)
+    data_all = search_for(@how, @value)
+    datas = data_all.where(customer_id: nil)
     @datas = datas.page(params[:page]).per(PER)
     @genres = Genre.all
   end
