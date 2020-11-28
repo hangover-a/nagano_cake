@@ -53,3 +53,13 @@ function slideimage(){
 
 //3秒ごとに背景画像を切り替える
 setInterval("slideimage()",3000);
+
+
+$(function(){
+ history.pushState(null, null, null); //ブラウザバック無効化
+ //ブラウザバックボタン押下時
+ $(window).on("popstate", function (event) {
+   history.pushState(null, null, null);
+   window.alert('前のページへは戻れません。');
+ });
+});

@@ -18,7 +18,7 @@
           <li class="nav-btn-admin"><%= link_to '注文履歴一覧', administrator_orders_path %></li>
           <li class="nav-btn-admin"><%= link_to 'ジャンル一覧', administrator_genres_path %></li>
           <li class="nav-btn-admin"><%= link_to 'ログアウト', destroy_administrator_session_path, method: :delete %></li>
-          <%= render "administrator/searches/search" %>
+          <%= render "administrator/searches/search", class: "pull-right"%>
         <% else %>
           <li class="nav-btn"><%= link_to 'About', about_path %></li>
           <li class="nav-btn"><%= link_to '商品一覧', items_path %></li>

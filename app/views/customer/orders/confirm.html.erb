@@ -1,3 +1,4 @@
+
 <h2>注文情報確認</h2>
 <div class="row">
   <div class="col-xs-8">
@@ -19,13 +20,13 @@
                 <%= cart.item.name %>
               </td>
               <td>
-                <%= cart.item.price_tax_included.to_s(:delimited, delimiter: ',') %>
+                <%= cart.item.price_tax_included.to_s(:delimited, delimiter: ',') %>円
               </td>
               <td>
                 <%= cart.quantity %>
               </td>
               <td>
-                <%= cart.sub_price.to_s(:delimited, delimiter: ',') %>
+                <%= cart.sub_price.to_s(:delimited, delimiter: ',') %>円
               </td>
             </tr>
           <% end %>
@@ -38,19 +39,19 @@
       <tr>
         <th class="active">送料</th>
         <td>
-          <%= @order.delivery_fee %>
+          <%= @order.delivery_fee %>円
         </td>
       </tr>
       <tr>
         <th class="active">商品合計</th>
         <td>
-          <%= total_price(@cart_items).to_s(:delimited, delimiter: ',') %>
+          <%= total_price(@cart_items).to_s(:delimited, delimiter: ',') %>円
         </td>
       </tr>
       <tr>
         <th class="active">請求金額</th>
         <td>
-          <%= pricing_money(@cart_items, @order).to_s(:delimited, delimiter: ',') %>
+          <%= pricing_money(@cart_items, @order).to_s(:delimited, delimiter: ',') %>円
         </td>
       </tr>
     </table>
@@ -74,11 +75,11 @@
   </div>
   <div class="col-xs-6"></div>
 </div>
-<%= form_with model: @order, url: customers_orders_path, method: :post, local: true do |f| %>
-  <%= f.hidden_field :postcode, :value => @order.postcode %>
-  <%= f.hidden_field :address, :value => @order.address %>
-  <%= f.hidden_field :addressee, :value => @order.addressee %>
-  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-  <%= f.hidden_field :total_cost, :value => pricing_money(@cart_items, @order) %>
-  <%= f.submit "購入を確定する", class: "btn btn-warning" %>
-<% end %>
+  <%= form_with model: @order, url: customers_orders_path, method: :post, local: true do |f| %>
+    <%= f.hidden_field :postcode, :value => @order.postcode %>
+    <%= f.hidden_field :address, :value => @order.address %>
+    <%= f.hidden_field :addressee, :value => @order.addressee %>
+    <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+    <%= f.hidden_field :total_cost, :value => pricing_money(@cart_items, @order) %>
+    <%= f.submit "購入を確定する", class: "btn btn-warning" %>
+  <% end %>

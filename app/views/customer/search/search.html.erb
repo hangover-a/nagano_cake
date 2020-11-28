@@ -34,7 +34,7 @@
             <%= attachment_image_tag data, :image, size: "190x150", class: "img_hover" %><br>
           <% end %>
           <p class="fas fa-chevron-circle-right item-name"><%=  data.name %></p><br>
-          <p class="fas fa-chevron-circle-right">￥<%= data.price_without_tax %></p>
+          <p class="fas fa-chevron-circle-right"><%= data.price_without_tax.to_s(:delimited, delimiter: ',') %>円</p>
         </div>
       <% end %>
       <div class="pagination col-xs-text-center">

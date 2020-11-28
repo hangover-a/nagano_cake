@@ -1,24 +1,51 @@
-# README
+# ながのCAKE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
+長野県にある小さな洋菓子店,「ながのCAKE」の商品を通販するためのECサイト。<br>
+# 案件の背景
+元々近隣樹民が主な顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るようになった。<br>
+InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、<br>
+管理機能を含んだ通販サイトを開設しようと思い至った。
+# 通販について
+・通販では注文に応じて製作する受注生産型としています。<br>
+・現在通販での注文量は十分に対応可能な量のため、1日の受注量に制限は設けていません。<br>
+・送料は１配送につき全国一律８００円。<br>
+・友人や家族へのプレゼントなど、注文者の住所以外にも商品を発送することができます。<br>
+・支払い方法はクレジットカード、銀行振込から選択できます。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 実装機能
+管理者側<br>
+・管理者用メールアドレスとパスワードでログイン<br>
+・当日の注文数表示<br>
+・商品の追加、編集、販売停止<br>
+・ジャンルの追加、編集<br>
+・顧客の注文履歴一覧、詳細表示<br>
+・オリジナルケーキの注文一覧、詳細<br>
+顧客側<br>
+・会員登録、ログイン、ログアウト、退会<br>
+・ログインはメールアドレスとパスワード<br>
+・マイページの表示、編集<br>
+・オススメ商品の表示<br>
+・商品一覧、詳細（税込表示）<br>
+・ジャンル検索<br>
+・オリジナルケーキの注文<br>
+・ストック機能の追加<br>
+・注文確認ページで送料、商品合計の合計額表示<br>
+# 使用方法
+$git clone git@github.com:hangover-a/nagano_cake.git<br>
+$cd nagano_cake<br>
+$bundle install<br>
+$rails db:migrate
+# 使用言語
+・HTML&CSS<br>
+・Ruby<br>
+・JavaScript<br>
+フレームワーク<br>
+・Ruby on Rails<br>
+・jQuery
+# 作成者
+チーム名　【 hangover 】<br>
+メンバー<br>
+・ヨウヘイ<br>
+・イサキ<br>
+・たけ
