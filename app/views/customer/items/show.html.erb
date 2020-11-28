@@ -33,7 +33,9 @@
         <div id="item-<%= @item.id %>">
           <%= render partial: 'stocks/stock', locals: { item: @item } %>
         </div>
-        <%= link_to 'ストック一覧はこちら', stocks_path %>
+        <% if current_customer && customer_signed_in? %>
+          <%= link_to 'ストック一覧はこちら', stocks_path %>
+        <% end %>
         <%= render "layouts/errors", model: @cart_item %>
     </div>
     <div class="col-xs-12">
