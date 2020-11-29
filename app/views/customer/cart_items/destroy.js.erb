@@ -1,1 +1,2 @@
 $("#form-ajax").html("<%= j(render partial: 'form', locals: { cart_items: @cart_items }) %>");
+$("#total-cost").html("<%= j(render partial: 'total_cost', locals: { cart_items: @cart_items }) %>");
